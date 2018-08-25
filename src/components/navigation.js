@@ -1,43 +1,53 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink
+} from 'reactstrap';
 
-const styles = {
-    rightToolbar: {
-        marginLeft: 'auto',
-        marginRight: -12,
-    },
-    menuButton: {
-        marginRight: 16,
-        marginLeft: -12,
-    },
-};
+class Navigation extends Component {
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            isOpen: false
+        };
+    }
+    toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
+    render() {
+        return (
+            <Navbar color="light" light expand="md">
+                <NavbarBrand href="/">Kumo</NavbarBrand>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <NavLink tag={Link} to="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/menu">Menu</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/gallery">Gallery</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/contact">Contact Us</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
+        );
+    }
 
-function Navigation(props) {
-  const { classes } = props;
-  return (
-    <AppBar position="fixed">
-
-        <Toolbar>
-        <Typography variant="title" color="inherit">Kumo</Typography>
-
-        <section className={classes.rightToolbar}>
-            <Button color="inherit" component={Link} to="/">Home</Button>
-            <Button color="inherit" component={Link} to="/menu">Menu</Button>
-            <Button color="inherit" component={Link} to="/gallery">Gallery</Button>
-            <Button color="inherit" component={Link} to="/contact">Contact Us</Button>
-
-        </section>
-        </Toolbar>
-
-    </AppBar>
-  );
 }
 
-Navigation.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Navigation);
+export default Navigation;

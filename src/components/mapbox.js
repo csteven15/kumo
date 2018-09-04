@@ -21,11 +21,17 @@ class Map extends Component {
         const {viewport} = this.state;
         console.log('created maps');
         return (
-            <MapGL {...this.state.viewport} mapStyle="mapbox://styles/mapbox/dark-v9" onViewportChange={(viewport) => this.setState({viewport})} mapboxApiAccessToken={TOKEN}>
+            <MapGL className={styles.mapboxStyle} {...this.state.viewport} mapStyle="mapbox://styles/mapbox/dark-v9" onViewportChange={(viewport) => this.setState({viewport})} mapboxApiAccessToken={TOKEN}>
             </MapGL>
         );
     }
 
+}
+
+const styles = {
+    mapboxStyle: {
+        textAlign: 'justify'
+    }
 }
 
 export default Map;

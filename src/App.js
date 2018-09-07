@@ -6,6 +6,7 @@ import Home from './components/home';
 import Menu from './components/menu';
 import Gallery from './components/gallery';
 import Contact from './components/contact';
+import Login from './components/login';
 
 const styles = {
   content: {
@@ -24,8 +25,9 @@ class App extends Component {
             <Route path="/menu" exact component={Menu} />
             <Route path="/gallery" exact component={Gallery} />
             <Route path="/contact" exact component={Contact} />
+            <Route path="/admin" exact component={Login} />
           </div>
-          
+
         </div>
       </Router>
     );

@@ -8,8 +8,8 @@ class Map extends Component {
         super(props);
         this.state = {
             viewport: {
-                width: 200,
-                height: 200,
+                width: 250,
+                height: 250,
                 latitude: 28.602382,
                 longitude: -81.200104,
                 zoom: 12
@@ -21,16 +21,25 @@ class Map extends Component {
         const {viewport} = this.state;
         console.log('created maps');
         return (
-            <MapGL className={styles.mapboxStyle} {...this.state.viewport} mapStyle="mapbox://styles/mapbox/dark-v9" onViewportChange={(viewport) => this.setState({viewport})} mapboxApiAccessToken={TOKEN}>
-            </MapGL>
+            <div style={styles.mapboxContainer}>
+                <MapGL style={styles.mapboxStyle} {...this.state.viewport} mapStyle="mapbox://styles/csteven15/cje8ysrkab6sv2rmwzdn630ew" onViewportChange={(viewport) => this.setState({viewport})} mapboxApiAccessToken={TOKEN}>
+                </MapGL>
+            </div>
         );
     }
 
 }
 
 const styles = {
+    mapboxContainer: {
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
     mapboxStyle: {
-        textAlign: 'justify'
+        textAlign: 'justify',
+        width: '100vw',
+        height: '100vh'
     }
 }
 

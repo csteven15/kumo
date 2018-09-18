@@ -10,6 +10,12 @@ import {
     NavLink
 } from 'reactstrap';
 
+// background: #eeeeee;
+// background: -moz-linear-gradient(left, #eeeeee 10%, #edf900 27%, #00d114 42%, #00d2fc 54%, #5f00bf 76%, #ed0000 100%);
+// background: -webkit-linear-gradient(left, #eeeeee 10%,#edf900 27%,#00d114 42%,#00d2fc 54%,#5f00bf 76%,#ed0000 100%);
+// background: linear-gradient(to right, #eeeeee 10%,#edf900 27%,#00d114 42%,#00d2fc 54%,#5f00bf 76%,#ed0000 100%);
+// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ed0000',GradientType=1 );
+
 class Navigation extends Component {
     constructor(props) {
         super(props);
@@ -25,8 +31,8 @@ class Navigation extends Component {
     }
     render() {
         return (
-            <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">Kumo</NavbarBrand>
+            <Navbar color="dark" dark expand="md" fixed="top">
+                <NavbarBrand href="/" style={{ fontSize: '24px'}}><strong>Kumo Asian Kitchen</strong></NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>

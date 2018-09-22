@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slide from 'react-reveal/Slide';
-import { UncontrolledCarousel, Jumbotron, Row, Col, Container} from 'reactstrap';
+import { Row, Col, Container} from 'reactstrap';
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css'
 import "slick-carousel/slick/slick-theme.css";
@@ -92,6 +92,29 @@ const Home = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed magna aliqua. Dignissim convallis aenean et tortor at risus. Ac auctor augue mauris augue neque gravida in fermentum et. Egestas sed sed risus pretium quam vulputate dignissim. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Facilisis magna etiam tempor orci. Vitae aliquet nec ullamcorper sit amet risus nullam. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Arcu risus quis varius quam quisque id. Scelerisque varius morbi enim nunc faucibus a. Vitae sapien pellentesque habitant morbi tristique senectus et netus. Felis bibendum ut tristique et egestas quis. Libero id faucibus nisl tincidunt eget nullam non. Egestas diam in arcu cursus euismod quis viverra nibh cras. Urna porttitor rhoncus dolor purus non enim. Vestibulum morbi blandit cursus risus at. In pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. Quis hendrerit dolor magna eget. Congue quisque egestas diam in arcu cursus euismod quis viverra.</p>
                     </Slide></Col>
                     <Col sm><Slide right><img src="https://picsum.photos/500/500/?image=100" style={styles.image} /></Slide></Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col sm="4">
+                        <p>testtest test        </p>
+                    </Col>
+                    <Col sm="4">
+                        <p>testtest test        </p>
+                    </Col>
+                    <Col sm="4">
+                        <p>testtest test        </p>
+                    </Col>
+                    <Col sm="4">
+                        <p>testtest test        </p>
+                    </Col>
+                    <Col sm="4">
+                        <p>testtest test        </p>
+                    </Col>
+                    <Col sm="4">
+                        <p>testtest test        </p>
+                    </Col>
+                    
                 </Row>
             </Container>
         </div>

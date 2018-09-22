@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
-import MapGL, { Marker } from 'react-map-gl';
+import MapGL from 'react-map-gl';
+// Marker import
 
 const TOKEN = 'pk.eyJ1IjoiY3N0ZXZlbjE1IiwiYSI6ImNqZW01enFuejBndnIyeHFtMjE2eGJjdWUifQ.ijNpFhnB7y8tdIRqT4fWYw';
 
@@ -18,8 +19,6 @@ class Map extends Component {
     }
     
     render() {
-        const {viewport} = this.state;
-        console.log('created maps');
         return (
             <div style={styles.mapboxContainer}>
                 <MapGL style={styles.mapboxStyle} {...this.state.viewport} mapStyle="mapbox://styles/csteven15/cje8ysrkab6sv2rmwzdn630ew" onViewportChange={(viewport) => this.setState({viewport})} mapboxApiAccessToken={TOKEN}>

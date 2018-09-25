@@ -14,6 +14,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    console.log(fire);
     this.handleClick = this.handleClick.bind(this);
     this.handleUpdateEmail = this.handleUpdateEmail.bind(this);
     this.handleUpdatePassword = this.handleUpdatePassword.bind(this);
@@ -28,25 +29,11 @@ class Login extends Component {
   }
 
   handleUpdateEmail(event) {
-    let stateCopy = Object.assign({}, this.state);
-    stateCopy.email = event.target.value;
-    this.setState(stateCopy);
+    this.setState({email: event.target.value});
   }
 
   handleUpdatePassword(event) {
-    let stateCopy = Object.assign({}, this.state);
-    stateCopy.password = event.target.value;
-    this.setState(stateCopy);
-  }
-
-  componentWillMount() {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user == null) {
-        alert('Not signed in!');
-      } else {
-        alert('Signed in as ' + JSON.stringify(user));
-      }
-    });
+    this.setState({password: event.target.value});
   }
 
   render() {

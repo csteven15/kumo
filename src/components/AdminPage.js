@@ -24,6 +24,7 @@ class AdminPage extends React.Component<State> {
   }
 
   componentWillMount() {
+    console.log(fire.auth());
     fire.auth().onAuthStateChanged((user) => {
       /*if (user == null) {
         alert('Not signed in!');

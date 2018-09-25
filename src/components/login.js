@@ -15,24 +15,21 @@ class Login extends Component {
     super(props);
     this.state = {};
     console.log(fire);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleUpdateEmail = this.handleUpdateEmail.bind(this);
-    this.handleUpdatePassword = this.handleUpdatePassword.bind(this);
   }
 
-  handleClick() {
+  handleClick = () => {
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((arg) => {
-      alert('Signed in with ' + JSON.stringify(arg));
+      //alert('Signed in with ' + JSON.stringify(arg));
     }, (error) => {
-      alert('Failed to sign in with ' + JSON.stringify(error));
+      alert('Failed to sign in: ' + error.message);
     });
   }
 
-  handleUpdateEmail(event) {
+  handleUpdateEmail = (event) => {
     this.setState({email: event.target.value});
   }
 
-  handleUpdatePassword(event) {
+  handleUpdatePassword = (event) => {
     this.setState({password: event.target.value});
   }
 

@@ -8,8 +8,7 @@ class AdminControls extends React.Component<{},Props> {
   render() {
     return (
         <div style={{ backgroundColor: '#eeeeee' }}>
-            Admin page!
-            {JSON.stringify(this.props.user)}
+            Welcome {this.props.user.email} to Admin page!
         </div>
     )
   }

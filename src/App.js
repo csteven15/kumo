@@ -7,6 +7,7 @@ import Menu from './components/menu';
 import Gallery from './components/gallery';
 import Contact from './components/contact';
 import Footer from './components/footer';
+import Login from './components/login';
 
 const styles = {
   container: {
@@ -20,21 +21,19 @@ const styles = {
 class App extends Component {
   render() {
     return (
-      <div style={styles.container}>
-        <Router>
-          <div className="App">
-            <Navigation />
-            <div style={styles.content}>
-              <Route path="/" exact component={Home} />
-              <Route path="/menu" exact component={Menu} />
-              <Route path="/gallery" exact component={Gallery} />
-              <Route path="/contact" exact component={Contact} />
-            </div>
-            <Footer />
-            
+      <Router>
+        <div className="App">
+          <Navigation />
+          <div style={styles.content}>
+            <Route path="/" exact component={Home} />
+            <Route path="/menu" exact component={Menu} />
+            <Route path="/gallery" exact component={Gallery} />
+            <Route path="/contact" exact component={Contact} />
+            <Route path="/admin" exact component={Login} />
           </div>
-        </Router>
-      </div>
+
+        </div>
+      </Router>
     );
   }
 }

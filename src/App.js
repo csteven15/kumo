@@ -31,6 +31,7 @@ class App extends Component {
             <Route path="/contact" exact component={Contact} />
             <Route path="/admin" exact component={Login} />
           </div>
+          <Footer />
 
         </div>
       </Router>

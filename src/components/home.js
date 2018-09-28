@@ -35,8 +35,6 @@ class Home extends Component {
 
 
     render() {
-        var path = 'menu/drinks.jpg'
-        {this.getImage(path)};
         return (
             <div style={{ backgroundColor: '#eeeeee' }}>
                 <div>

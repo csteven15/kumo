@@ -116,5 +116,3 @@ const styles = {
         height: '350px'
     }
 };
-
-export default Home;

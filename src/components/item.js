@@ -3,24 +3,44 @@ import { Container, Row, Col } from 'reactstrap';
 
 class Item extends Component {
 
-    isHot() {
-        if (this.props.isHot === true)
+    isHotRaw() {
+        if (this.props.isHot === true && this.props.isRaw === true) {
             return (
-                <p>It is HOT</p>
+                <div style={{float:"right"}}>
+                    &nbsp;&nbsp;
+                    <img src={require('../images/fire.svg')} width="10" />
+                    &nbsp;&nbsp;
+                    <img src={require('../images/raw.jpg')} width="15" />
+                </div>
             );
-    }
-
-    isRaw() {
-        if (this.props.isRaw == true)
+        } else if (this.props.isHot === true) {
             return (
-                <p>It is RAW</p>
+                <div style={{float:"right"}}>
+                    &nbsp;&nbsp;
+                    <img src={require('../images/fire.svg')} width="10" />
+                </div>
             );
+        } else if (this.props.isRaw === true) {
+            return (
+                <div style={{float:"right"}}>
+                    &nbsp;&nbsp;
+                    <img src={require('../images/raw.jpg')} width="15" />
+                </div>
+            );
+        }
     }
 
     price() {
         let price = this.props.price;
         if (price) {
             return (price);
+        }
+    }
+
+    description() {
+        let description = this.props.description;
+        if (description) {
+            return (description);
         }
     }
 
@@ -60,31 +80,25 @@ class Item extends Component {
 
         return (
             <div>
-                <Container>
+                <Container style={{padding: "2px"}}>
                     <Row>
-                        <Col sm="10">
-                            <h6 style={{textAlign: "left"}}><strong>{this.props.name}</strong></h6>
+                        <Col sm="10" style={{textAlign: "left"}}>
+                        <div>
+                            <h6 style={{float: "left"}}><strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
+                        </div>
                         </Col>
-                        <Col sm="2">
-                            <h6 style={{textAlign: "right"}}><strong>{this.price()}</strong></h6>
+                        <Col sm="2"  style={{textAlign: "right"}}>
+                            <h6><strong>{this.price()}</strong></h6>
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
-                            <p style={{fontSize: "11px", textAlign: "left"}}>{this.props.description}</p>
+                        <Col style={{fontSize: "11px", textAlign: "left"}}>
+                            {this.description()}
+                            {this.priceSetting()}
+                            {this.priceAugmenting()}
+                            
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
-                            {this.isHot()}
-                            {this.isRaw()}
-                        </Col>
-                    </Row>
-                    <div>
-                        
-                        {this.priceSetting()}
-                        {this.priceAugmenting()}
-                    </div>
                 </Container>
                 
                 

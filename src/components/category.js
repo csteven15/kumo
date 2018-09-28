@@ -22,16 +22,28 @@ class Category extends Component {
         return itemsList;
     }
 
+    footnote() {
+        if (this.props.data.footnote) {
+            return (
+                <div> 
+                    <p><strong>*** Additional Protein: </strong>{this.props.data.footnote} <strong>***</strong></p>
+                </div>
+            );
+        }
+    }
+
     render() {
         return (
             <div>
                 <h3>{this.props.data.name}</h3>
-                <h6>{this.props.data.description}</h6>
+                <h6><strong>{this.props.data.description}</strong></h6>
+                <hr />
                 <Container>
                     <Row>
                         {this.listItems()}
                     </Row>
                 </Container>
+                {this.footnote()}
             </div>
         )
     }

@@ -4,54 +4,6 @@ import Map from './mapbox';
 
 const Footer = () => {
     return (
-        // <div className="container-fluid">
-        //     <div className="row">
-        //         <div className="col-sm-4">
-        //             <h5>About</h5>
-        //             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nisi purus, egestas vel tortor eget, vestibulum accumsan metus. Aenean tincidunt sem felis, id vulputate mi consectetur sit amet. Nunc non lobortis turpis. Suspendisse interdum posuere purus et faucibus. Curabitur varius, neque id efficitur dignissim, libero magna malesuada ex, et auctor erat velit a leo. Vivamus in nulla sem. Nunc gravida ex et scelerisque eleifend. In suscipit vestibulum turpis. Aliquam vitae porttitor mauris, sit amet ullamcorper ante. Suspendisse in nunc vitae ex feugiat semper. Ut ultrices feugiat lectus ac maximus.</p>
-        //         </div>
-        //         <div className="col-sm-4">
-        //             <h5>Our Location</h5>
-        //             <Map />
-        //         </div>
-        //         <div className="col-sm-4">
-        //         <h5>Business Hours</h5>
-        //              <Table>
-        //                  <tbody>
-        //                      <tr>
-        //                          <td>Monday</td>
-        //                          <td>11:00 am - 9:30 pm</td>
-        //                      </tr>
-        //                      <tr>
-        //                          <td>Tuesday</td>
-        //                          <td>11:00 am - 9:30 pm</td>
-        //                      </tr>
-        //                      <tr>
-        //                          <td>Wednesday</td>
-        //                          <td>11:00 am - 9:30 pm</td>
-        //                      </tr>
-        //                      <tr>
-        //                          <td>Thursday</td>
-        //                          <td>11:00 am - 9:30 pm</td>
-        //                      </tr>
-        //                      <tr>
-        //                          <td>Friday</td>
-        //                          <td>11:00 am - 9:30 pm</td>
-        //                      </tr>
-        //                      <tr>
-        //                          <td>Saturday</td>
-        //                          <td>11:00 am - 9:30 pm</td>
-        //                      </tr>
-        //                      <tr>
-        //                          <td>Sunday</td>
-        //                          <td>12:00 am - 9:30 pm</td>
-        //                      </tr>
-        //                  </tbody>
-        //              </Table>
-        //         </div>
-
-        //     </div>
-        // </div>
         <div style={styles.containerStyle}>
         <Container>
             <br />
@@ -69,31 +21,31 @@ const Footer = () => {
                     <Table>
                         <tbody>
                             <tr>
-                                <td>Monday</td>
+                                <td><strong>Monday</strong></td>
                                 <td>11:00 am - 9:30 pm</td>
                             </tr>
                             <tr>
-                                <td>Tuesday</td>
+                                <td><strong>Tuesday</strong></td>
                                 <td>11:00 am - 9:30 pm</td>
                             </tr>
                             <tr>
-                                <td>Wednesday</td>
+                                <td><strong>Wednesday</strong></td>
                                 <td>11:00 am - 9:30 pm</td>
                             </tr>
                             <tr>
-                                <td>Thursday</td>
+                                <td><strong>Thursday</strong></td>
                                 <td>11:00 am - 9:30 pm</td>
                             </tr>
                             <tr>
-                                <td>Friday</td>
+                                <td><strong>Friday</strong></td>
                                 <td>11:00 am - 9:30 pm</td>
                             </tr>
                             <tr>
-                                <td>Saturday</td>
+                                <td><strong>Saturday</strong></td>
                                 <td>11:00 am - 9:30 pm</td>
                             </tr>
                             <tr>
-                                <td>Sunday</td>
+                                <td><strong>Sunday</strong></td>
                                 <td>12:00 am - 9:30 pm</td>
                             </tr>
                         </tbody>

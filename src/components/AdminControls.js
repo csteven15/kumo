@@ -10,11 +10,11 @@ type Props = {
 class AdminControls extends React.Component<{},Props> {
   render() {
     return (
-        <div style={{ backgroundColor: '#eeeeee' }}>
+        <div style={{ backgroundColor: '#fcfcfc' }}>
           <Col>
             <Button onClick={this.handleSignOut}>Logout</Button>
             <div>Welcome {this.props.user.email} to Admin page!</div>
-            <Menu/>
+            <Menu isAdmin={true}/>
           </Col>
         </div>
 

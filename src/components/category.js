@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Item from './item';
 
+
 class Category extends Component {
 
     listItems() {
@@ -25,7 +26,7 @@ class Category extends Component {
     footnote() {
         if (this.props.data.footnote) {
             return (
-                <div> 
+                <div>
                     <p><strong>*** Additional Protein: </strong>{this.props.data.footnote} <strong>***</strong></p>
                 </div>
             );
@@ -33,22 +34,33 @@ class Category extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <h3>{this.props.data.name}</h3>
-                <h6><strong>{this.props.data.description}</strong></h6>
-                <hr />
-                <Container>
-                    <Row>
-                        {this.listItems()}
-                    </Row>
-                </Container>
-                {this.footnote()}
-            </div>
-        )
+      let contents = null;
+      if (this.props.data) {
+        contents = (
+          <div>
+          <h3>{this.props.data.name}</h3>
+          <h6><strong>{this.props.data.description}</strong></h6>
+          <hr />
+          <Container>
+              <Row>
+                  {this.listItems()}
+              </Row>
+          </Container>
+          {this.footnote()}
+          </div>
+      );
+      } else {
+        contents = <div><b>Add a new category</b></div>;
+      }
+      
+      return (
+          <div>
+            {contents}
+          </div>
+      );
     }
 
-    
+
 };
 
 export default Category;

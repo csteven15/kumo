@@ -107,10 +107,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$8.95",
-            "text" : "Small"
+            "text" : "S"
           }, {
             "price" : "$10.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -121,10 +121,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$9.95",
-            "text" : "Small"
+            "text" : "S"
           }, {
             "price" : "$11.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -135,10 +135,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$9.95",
-            "text" : "Small"
+            "text" : "S"
           }, {
             "price" : "$11.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -292,10 +292,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$8.95",
-            "text" : "Small"
+            "text" : "S"
           }, {
             "price" : "$10.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -307,10 +307,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$8.95",
-            "text" : "Small"
+            "text" : "S"
           }, {
             "price" : "$10.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -322,10 +322,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$8.95",
-            "text" : "Small"
+            "text" : "S"
           }, {
             "price" : "$10.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -460,10 +460,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$3.50",
-            "text" : "Medium"
+            "text" : "M"
           }, {
             "price" : "$4.50",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -474,10 +474,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$3.50",
-            "text" : "Medium"
+            "text" : "M"
           }, {
             "price" : "$4.50",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -488,10 +488,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$3.95",
-            "text" : "Medium"
+            "text" : "M"
           }, {
             "price" : "$4.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -502,10 +502,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$3.95",
-            "text" : "Medium"
+            "text" : "M"
           }, {
             "price" : "$4.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -516,10 +516,10 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$1.75",
-            "text" : "Medium"
+            "text" : "M"
           }, {
             "price" : "$1.95",
-            "text" : "Large"
+            "text" : "L"
           } ],
           "title" : "Size"
         }
@@ -530,7 +530,7 @@
         "optionPriceSetting" : {
           "options" : [ {
             "price" : "$3.00",
-            "text" : "Medium"
+            "text" : "M"
           }],
           "title" : "Size"
         }

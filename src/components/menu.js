@@ -3,51 +3,98 @@ import { Container, Jumbotron } from 'reactstrap';
 import Firebase from './../fire';
 import Category from './category';
 
-class Menu extends Component {
+type Props = {
+  isAdmin?: boolean,
+}
+
+class Menu extends Component<{},Props> {
     constructor(props) {
         super(props);
         this.state = {
-            list: []
+            data: []
         }
     }
 
     componentWillMount() {
-        let database = Firebase.database();
-        let menuRef = database.ref('menu');
-        // var list = [];
-        menuRef.once('value', (snapshot) => {
-            snapshot.forEach((child) => {
-                var json = child.toJSON();
-                this.setState({list: [...this.state.list, json]});
-            });
-        });
+      let database = Firebase.database();
+      let menuRef = database.ref('menu');
+
+      if (this.props.isAdmin) {
+        menuRef.once('value', this.updateToSnapshot);
+      } else {
+        menuRef.on('value', this.updateToSnapshot);
+      }
     }
 
-    createCategories(list) {
+
+    updateToSnapshot = (snapshot) => {
+        var data = snapshot.toJSON();
+        this.updateData(data);
+    }
+
+    updateData = (data) => {
+      this.setState({data});
+      console.log(data);
+    }
+
+    saveChanges() {
+      let database = Firebase.database();
+      let menuRef = database.ref('menu');
+
+      console.log("Setting menu to", this.state.data);
+      menuRef.set(this.state.data);
+    }
+
+    addCategory = () => {
+      var data = {...this.state.data};
+      let maxId = 0;
+      for (let key in data) {
+        let id = parseInt(key);
+        if (!isNaN(id)) {
+          maxId = Math.max(id, maxId);
+        }
+      }
+      maxId++;
+      data["" + maxId] = {name: "Name Here", description: "Description Here", items: []};
+      this.setState({data}, this.saveChanges);
+    }
+
+    createCategories(data) {
         var category = [];
-        for (var i = 0; i < this.state.list.length;i++) {
+        for (var key in data) {
             category.push(
-                <div>
+                <div key={key}>
                     <Jumbotron>
-                        <Category data={list[i]} />
+                        <Category data={data[key]} updateData={this.updateData} />
                     </Jumbotron>
                 </div>
             );
         }
+
+        if (this.props.isAdmin) {
+            category.push(
+                <div key='_newItem' onClick={this.addCategory}>
+                    <Jumbotron>
+                        <Category data={null} />
+                    </Jumbotron>
+                </div>
+            );
+        }
+
         return category;
     }
 
-    render() {        
-        return (
-            <div>
-                <h1>Menu</h1>
-                <Container>
-                    {this.createCategories(this.state.list)}
-                </Container>
-            </div>
-        )
+    render() {
+      return (
+          <div>
+              <h1>Menu</h1>
+              <Container>
+                  {this.createCategories(this.state.data)}
+              </Container>
+          </div>
+      )
     }
-    
+
 };
 
 export default Menu;

@@ -14,39 +14,23 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleClick = this.handleClick.bind(this);
-    this.handleUpdateEmail = this.handleUpdateEmail.bind(this);
-    this.handleUpdatePassword = this.handleUpdatePassword.bind(this);
+    console.log(fire);
   }
 
-  handleClick() {
+  handleClick = () => {
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((arg) => {
-      alert('Signed in with ' + JSON.stringify(arg));
+      //alert('Signed in with ' + JSON.stringify(arg));
     }, (error) => {
-      alert('Failed to sign in with ' + JSON.stringify(error));
+      alert('Failed to sign in: ' + error.message);
     });
   }
 
-  handleUpdateEmail(event) {
-    let stateCopy = Object.assign({}, this.state);
-    stateCopy.email = event.target.value;
-    this.setState(stateCopy);
+  handleUpdateEmail = (event) => {
+    this.setState({email: event.target.value});
   }
 
-  handleUpdatePassword(event) {
-    let stateCopy = Object.assign({}, this.state);
-    stateCopy.password = event.target.value;
-    this.setState(stateCopy);
-  }
-
-  componentWillMount() {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user == null) {
-        alert('Not signed in!');
-      } else {
-        alert('Signed in as ' + JSON.stringify(user));
-      }
-    });
+  handleUpdatePassword = (event) => {
+    this.setState({password: event.target.value});
   }
 
   render() {

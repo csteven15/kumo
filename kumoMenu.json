@@ -1,0 +1,646 @@
+{
+  "menu" : [
+    {
+      "items" : [ {
+        "description" : "Salt & Pepper or Spicy Garlic Butter",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Edamame",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$4.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Crab Rangoon",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$5.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Gyoza",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$5.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Crispy Spring Roll",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$5.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Rock Shrimp",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$6.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Popcorn Chicken",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$6.00"
+          } ]
+        }
+      }, {
+        "description" : "Four pieces.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Shrimp Tempura",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$5.75"
+          } ]
+        }
+      }, {
+        "description" : "Seven pieces.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Vegetable Tempura",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$5.75"
+          } ]
+        }
+      }, {
+        "description" : "Five pieces.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Sushi",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$5.95"
+          } ]
+        }
+      }, {
+        "description" : "Eight pieces.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Sashimi",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$8.95"
+          } ]
+        }
+      } ],
+      "name" : "Appetizer"
+    }, {
+      "description" : "Served with your choice of fried rice or white rice.",
+      "items" : [ {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Chicken Hibachi",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$8.95",
+            "text" : "Small"
+          }, {
+            "price" : "$10.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Steak Hibachi",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.95",
+            "text" : "Small"
+          }, {
+            "price" : "$11.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Shrimp Hibachi",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.95",
+            "text" : "Small"
+          }, {
+            "price" : "$11.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      } ],
+      "name" : "Hibachi"
+    }, {
+      "optionPriceSetting" : {
+        "options" : [ {
+          "price" : "$10.95",
+          "text" : "Veggie"
+        }, {
+          "price" : "$11.90",
+          "text" : "Beef"
+        }, {
+          "price" : "$11.90",
+          "text" : "Chicken"
+        }, {
+          "price" : "$12.95",
+          "text" : "Shrimp"
+        }],
+        "title" : "Protein"
+      },
+      "items" : [ {
+        "description" : "Thick, brown soup with a rich, complex flavor.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Miso Ramen"
+      }, {
+        "description" : "Served with bok choy, egg, seaweed, corn, bean sprouts, scallions, menma, and choice of beef, chicken, beef ball, or chashu.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Tonkotsu Ramen (Bone Broth)"
+      }, {
+        "description" : "Fried Japanese noodles with choice of meat.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Yaki Udon & Yaki Soba"
+      } ],
+      "name" : "Noodles"
+    }, {
+      "description" : "Poke bowls served with sushi rice, lettuce, avocado, mango, corn, cucumber, seaweed salad, and tomato. Choice of protein and choice of sauce.",
+      "footnote" : "Shrimp Tempura +$1.50, Pepper Tuna +$3.00, Tuna +$3.00, Salmon +$2.00, Krab Meat +$1.00, Escolar +$2.00",
+      "optionPriceSetting" : {
+        "options" : [ {
+          "price" : "$11.00"
+        } ]
+      },
+      "items" : [ {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Shrimp Tempura"
+      }, {
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Pepper Tuna"
+      }, {
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Tuna"
+      }, {
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Salmon"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Crab Meat"
+      }, {
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Escolar"
+      } ],
+      "name" : "Poke Bowls"
+    }, {
+      "description" : "Selected a choice of sushi roll. Each is served with your choice of soup or salad.",
+      "optionPriceSetting" : {
+        "options" : [ {
+          "price" : "$9.00",
+          "text" : "Two Rolls"
+        }, {
+          "price" : "$11.00",
+          "text" : "Three Rolls"
+        } ],
+        "title" : "Quantity"
+      },
+      "items" : [ {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Snow Crab Roll"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Sweet Potato"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Avocado"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "AAC"
+      }, {
+        "isHot" : true,
+        "isRaw" : true,
+        "name" : "Spicy Tuna"
+      }, {
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Tuna"
+      }, {
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Salmon"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Asparagus"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Shrimp Tempura"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Peanut Avocado"
+      }, {
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Alaska"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "California"
+      }, {
+        "isHot" : true,
+        "isRaw" : true,
+        "name" : "Spicy Salmon"
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Boston"
+      } ],
+      "name" : "Sushi"
+    }, {
+      "description" : "Served with your choice of chicken, beef, shrimp, or veggies.",
+      "items" : [ {
+        "description" : "Yellow curry paste, coconut milk, potatoes, bell peppers, onions, avocado, and your choice of protein.",
+        "isHot" : true,
+        "isRaw" : false,
+        "name" : "Yellow Curry",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$8.95",
+            "text" : "Small"
+          }, {
+            "price" : "$10.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "description" : "Red curry paste, coconut milk, potatoes, bell peppers, onions, avocado, and your choice of protein.",
+        "isHot" : true,
+        "isRaw" : false,
+        "name" : "Red Curry",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$8.95",
+            "text" : "Small"
+          }, {
+            "price" : "$10.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "description" : "Stir fried famous thai rice noodles, ground peanuts, egg, scallion, and choice of meat.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Pad Thai",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$8.95",
+            "text" : "Small"
+          }, {
+            "price" : "$10.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      } ],
+      "name" : "Thai"
+    }, {
+      "items" : [ {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Miso soup",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$1.95"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Clear soup",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$1.95"
+          } ]
+        }
+        }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Dumpling Soup",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$1.95"
+          } ]
+        }
+      } ],
+      "name" : "Soup"
+    }, {
+      "items" : [ {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "House salad",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Seaweed salad",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$4.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Avocado salad",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$4.00"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Kani salad",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$5.00"
+          } ]
+        }
+      } ],
+      "name" : "Salad"
+    }, {
+      "description" : "Served with 2 pieces fried krab rangoon, 1 crunch rool and vegetables, soup OR salad, choice of fried OR white rice.",
+      "items" : [ {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Chicken teriyaki",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.95"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Beef teriyaki",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.95"
+          } ]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Salmon teriyaki",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.95"
+          } ]
+        }      
+      }, {
+        "description" : "Four pieces.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Sushi",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.95"
+          } ]
+        }
+      }, {
+        "description" : "Six pieces.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Sashimi",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$10.95"
+          } ]
+        }  
+      }],
+      "name" : "Bento"
+    }, {
+      "items" : [ {
+        "description" : "Milk tea , Thai Tea, Japanese green tea, Premium mixed green tea, Green honeydew, or Taro.",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Bubble Tea",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.50",
+            "text" : "Medium"
+          }, {
+            "price" : "$4.50",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Coffee",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.50",
+            "text" : "Medium"
+          }, {
+            "price" : "$4.50",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Cappucino",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.95",
+            "text" : "Medium"
+          }, {
+            "price" : "$4.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Premium Coffee",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.95",
+            "text" : "Medium"
+          }, {
+            "price" : "$4.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Fountain Soda",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$1.75",
+            "text" : "Medium"
+          }, {
+            "price" : "$1.95",
+            "text" : "Large"
+          } ],
+          "title" : "Size"
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Ramune Japanese Soda",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.00",
+            "text" : "Medium"
+          }],
+          "title" : "Size"
+        }
+      } ],
+      "name" : "Drinks"
+    }, {
+      "items" : [ {
+        "description" : "Mango, Vanilla, Green Tea, or Strawberry",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Mochi 2 pieces",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.50"
+          }]
+        }
+      }, {
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Cheesecake",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$3.50"
+          }]
+        }
+      }  ],
+      "name" : "Dessert"
+    }, {
+      "items" : [ {
+        "description": "Shrimp tempura, mango, cream cheese, avacado, & mango salsa sauce",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Mango Shrimp Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$11.00"
+          }]
+        }
+      }, {
+        "description": "Tuna, salmon, escolar, lettuce, avacado, cucumber, asparagus, wasabi & yuzu sauce",
+        "isHot" : false,
+        "isRaw" : true,
+        "name" : "Summer Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$11.00"
+          }]
+        }
+      }, {
+        "description": "Chicken tempura, cream cheese, avocado, corn, lettuce, eel sauce, & spicy mayo",
+        "isHot" : false,
+        "isRaw" : false,
+        "name" : "Master Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$11.00"
+          }]
+        }
+      },  {
+        "description": "Shrimp tempura, snow crab, avocado, crunch, & eel sauce",
+        "isHot" : false,
+        "isRaw" : false,
+        "name": "Rock N Roll Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.00"
+          }]
+        }
+      }, {
+        "description": "Pepper tuna, avocado, cucumber, asparagus, scallions, & poke sauce",
+        "isHot" : true,
+        "isRaw" : false,
+        "name": "Crazy Tuna Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$10.00"
+          }]
+        }
+      }, {
+        "description": "Spicy tuna and salmon, crunch, avocado, & cucumber with spicy mayo",
+        "isHot" : true,
+        "isRaw" : true,
+        "name": "Spicy 2 in 1 Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$10.00"
+          }]
+        }
+      }, {
+        "description": "Deep fried roll with escolar, cream cheese, avocado, krab stick, spicy mayo, & eel sauce",
+        "isHot" : false,
+        "isRaw" : true,
+        "name": "TNT Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.00"
+          }]
+        }
+      }, {
+        "description": "Deep fried roll with snow crab, cream cheese, avocado, asparagus, jalapeno, yum yum sauce, spicy mayo, & eel sauce",
+        "isHot" : true,
+        "isRaw" : false,
+        "name": "Dinosaur Burrito",
+        "optionPriceSetting" : {
+          "options" : [ {
+            "price" : "$9.00"
+          }]
+        }
+      }],
+      "name" : "Sushi Burrito"
+    }
+  ]
+}

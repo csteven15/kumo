@@ -1,0 +1,7 @@
+.gallery {
+  display: inline-block;
+  minHeight: 1px;
+  width: 75%;
+  border: 0px solid #ddd;
+  overflow: auto;
+}

@@ -37,7 +37,7 @@ class Menu extends Component {
         return category;
     }
 
-    render() {        
+    render() {
         return (
             <div>
                 <h1>Menu</h1>
@@ -47,7 +47,7 @@ class Menu extends Component {
             </div>
         )
     }
-    
+
 };
 
 export default Menu;

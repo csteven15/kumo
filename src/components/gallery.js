@@ -2,81 +2,50 @@ import React from 'react';
 import { Component } from 'react';
 import GridGallery from 'react-grid-gallery';
 import './gallery.css';
+import Firebase from './../fire';
+
+const storage = Firebase.storage().ref();
 
 class Gallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          images: [{
+          images: [
+            {
                   src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
                   thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
                   thumbnailWidth: 320,
-                  thumbnailHeight: 174,
-                  isSelected: false,
-                  caption: "After Rain (Jeshu John - designerspics.com)"
-          },
-          {
-                  src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-                  thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 212,
-                  tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}],
-                  caption: "Boats (Jeshu John - designerspics.com)"
-          },
-
-          {
-                  src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-                  thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 212
-          },
-          {
-                  src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-                  thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 174,
-                  isSelected: false,
-                  caption: "After Rain (Jeshu John - designerspics.com)"
-          },
-          {
-                  src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-                  thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 212,
-                  tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}],
-                  caption: "Boats (Jeshu John - designerspics.com)"
-          },
-
-          {
-                  src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-                  thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 212
-          },
-          {
-                  src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-                  thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 174,
-                  isSelected: false,
-                  caption: "After Rain (Jeshu John - designerspics.com)"
-          },
-          {
-                  src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-                  thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 212,
-                  tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}],
-                  caption: "Boats (Jeshu John - designerspics.com)"
-          },
-
-          {
-                  src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-                  thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 212
-          }]
+                  thumbnailHeight: 174
+            }
+          ]
         }
+
+        this.getImage = this.getImage.bind(this);
+
+        this.getImage('drinks');
+        this.getImage('fish1');
+        this.getImage('fish2');
+        this.getImage('noodle');
+        this.getImage('popcornChicken');
+        this.getImage('shrimp');
+        this.getImage('sushi');
+    }
+
+    getImage(image) {
+        storage.child(`/menu/${image}.jpg`).getDownloadURL().then((url) => {
+            this.state.images = this.state.images.slice();
+            this.state.images.push(
+              {
+                  src: url,
+                  thumbnail: url,
+                  thumbnailWidth: 320,
+                  thumbnailHeight: 174
+              }
+            );
+            this.setState(this.state);
+            }).catch((error) => {
+            // Handle any errors
+        });
     }
 
     render() {

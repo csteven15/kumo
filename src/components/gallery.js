@@ -10,14 +10,7 @@ class Gallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          images: [
-            {
-                  src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-                  thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 174
-            }
-          ]
+          images: []
         }
 
         this.getImage = this.getImage.bind(this);
@@ -33,16 +26,20 @@ class Gallery extends Component {
 
     getImage(image) {
         storage.child(`/menu/${image}.jpg`).getDownloadURL().then((url) => {
-            this.state.images = this.state.images.slice();
-            this.state.images.push(
-              {
-                  src: url,
-                  thumbnail: url,
-                  thumbnailWidth: 320,
-                  thumbnailHeight: 174
+              let img = new Image();
+              img.src = url;
+              img.onload = () => {
+                this.state.images = this.state.images.slice();
+                this.state.images.push(
+                  {
+                      src: url,
+                      thumbnail: url,
+                      thumbnailWidth: img.width/5,
+                      thumbnailHeight: img.height/5
+                  }
+                );
+                this.setState(this.state);
               }
-            );
-            this.setState(this.state);
             }).catch((error) => {
             // Handle any errors
         });

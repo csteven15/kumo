@@ -87,7 +87,8 @@ class Menu extends Component<{},Props> {
     render() {
       return (
           <div>
-              <h1>Menu</h1>
+              <br />
+              <br />
               <Container>
                   {this.createCategories(this.state.data)}
               </Container>

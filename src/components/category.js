@@ -11,7 +11,7 @@ class Category extends Component {
         for (var i in listOfItems) {
             const { name, description, price, isHot, isRaw, optionPriceSetting, optionPriceAugmenting } = listOfItems[i];
             itemsList.push(
-                <Col sm="4">
+                <Col sm="6">
                     <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} />
                 </Col>
             );
@@ -33,13 +33,52 @@ class Category extends Component {
         }
     }
 
+    optionPriceSetting() {
+        let optionPriceSetting = this.props.data.optionPriceSetting;
+        if (optionPriceSetting) {
+            var priceList = [];
+            for (var i in optionPriceSetting.options) {
+                if (optionPriceSetting.options[i].text) {
+                    priceList.push(optionPriceSetting.options[i].text + ': ' + optionPriceSetting.options[i].price);
+                } else {
+                    priceList.push(optionPriceSetting.options[i].price);
+                }
+            }
+            // console.log(priceList);
+            let finalPrice = priceList.join(' ~ ');
+            return finalPrice;
+        }
+    }
+
+    description() {
+        let description = this.props.data.description;
+        if (description) {
+            return (<h6>{description}</h6>);
+        }
+    }
+
     render() {
       let contents = null;
+      console.log(this.props.data);
       if (this.props.data) {
         contents = (
           <div>
-          <h3>{this.props.data.name}</h3>
-          <h6><strong>{this.props.data.description}</strong></h6>
+          <Container>
+              <Row>
+                  <Col sm="4" style={{textAlign: "left"}}>
+                    <h2><strong>{this.props.data.name}</strong></h2>
+                  </Col>
+                  <Col sm="8" style={{textAlign: "right", verticalAlign: "text-bottom"}}>
+                    <h6><strong>{this.optionPriceSetting()}</strong></h6>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col sm="12" style={{textAlign: "left"}}>
+                    {this.description()}
+                  </Col>
+                  
+              </Row>
+          </Container>
           <hr />
           <Container>
               <Row>

@@ -47,62 +47,56 @@ class Item extends Component {
     priceSetting() {
         let optionPriceSetting = this.props.optionPriceSetting;
         if (optionPriceSetting) {
-            let priceList = [];
-            priceList.push(
-                <h6>{optionPriceSetting.title}</h6>
-            )
+            // let arr = Object.keys(optionPriceSetting.options).map((i) => optionPriceSetting.options[i])
+            // console.log(arr);
+            var priceList = [];
             for (var i in optionPriceSetting.options) {
-                priceList.push(
-                    <p>{optionPriceSetting.options[i].text}: {optionPriceSetting.options[i].price}</p>
-                );
+                if (optionPriceSetting.options[i].text) {
+                    priceList.push(optionPriceSetting.options[i].text + ': ' + optionPriceSetting.options[i].price);
+                } else {
+                    priceList.push(optionPriceSetting.options[i].price);
+                }
             }
-            return priceList;
+            // console.log(priceList);
+            let finalPrice = priceList.join(' ~ ');
+            return finalPrice;
         }
     }
 
-    priceAugmenting() {
-        let optionPriceAugmenting = this.props.optionPriceAugmenting;
-        if (optionPriceAugmenting) {
-            let optionList = [];
-            // need to add base price and augment the price
-            console.log(optionPriceAugmenting)
-            for (var i in optionPriceAugmenting) {
-                optionList.push(<p>{optionPriceAugmenting[i].title}:</p>);
-                for (var j in optionPriceAugmenting[i].options) {
-                    optionList.push(<p>{optionPriceAugmenting[i].options[j].text}</p>)
-                }
-            }
-            return optionList;
-        }
-    }
+    // priceAugmenting() {
+    //     let optionPriceAugmenting = this.props.optionPriceAugmenting;
+    //     if (optionPriceAugmenting) {
+    //         let optionList = [];
+    //         // need to add base price and augment the price
+    //         for (var i in optionPriceAugmenting) {
+    //             for (var j in optionPriceAugmenting[i].options) {
+    //                 optionList.push(<p>{optionPriceAugmenting[i].options[j].text}</p>)
+    //             }
+    //         }
+    //         return optionList;
+    //     }
+    // }
 
     render() {
 
         return (
-            <div>
-                <Container style={{padding: "2px"}}>
-                    <Row>
-                        <Col sm="10" style={{textAlign: "left"}}>
-                        <div>
-                            <h6 style={{float: "left"}}><strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
-                        </div>
-                        </Col>
-                        <Col sm="2"  style={{textAlign: "right"}}>
-                            <h6><strong>{this.price()}</strong></h6>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col style={{fontSize: "11px", textAlign: "left"}}>
-                            {this.description()}
-                            {this.priceSetting()}
-                            {this.priceAugmenting()}
-                            
-                        </Col>
-                    </Row>
-                </Container>
-                
-                
-            </div>
+            <Container style={{padding: "2px"}}>
+                <Row>
+                    <Col sm="6" style={{textAlign: "left"}}>
+                    <div>
+                        <h6 style={{float: "left"}}><strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
+                    </div>
+                    </Col>
+                    <Col sm="6"  style={{textAlign: "right"}}>
+                        <h6><strong>{this.priceSetting()}</strong></h6>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col style={{fontSize: "11px", textAlign: "left"}}>
+                        {this.description()}                        
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 

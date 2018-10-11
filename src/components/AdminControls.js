@@ -12,7 +12,7 @@ class AdminControls extends React.Component<{},Props> {
     return (
         <div style={{ backgroundColor: '#fcfcfc' }}>
           <Col>
-            <Button onClick={this.handleSignOut}>Logout</Button>
+            <Button style={{margin: '5px'}} onClick={this.handleSignOut}>Logout</Button>
             <div>Welcome {this.props.user.email} to Admin page!</div>
             <Menu isAdmin={true}/>
           </Col>

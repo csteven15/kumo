@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Container, Jumbotron } from 'reactstrap';
+import { Button, Container, Jumbotron } from 'reactstrap';
 import Firebase from './../fire';
 import Category from './category';
 import Fade from 'react-reveal/Fade';
@@ -38,7 +38,7 @@ class Menu extends Component<{},Props> {
       console.log(data);
     }
 
-    saveChanges() {
+    saveChanges = () => {
       let database = Firebase.database();
       let menuRef = database.ref('menu');
 
@@ -84,6 +84,7 @@ class Menu extends Component<{},Props> {
     }
 
     render() {
+      const saveButton = this.props.isAdmin ? <Button style={{margin: '5px'}} onClick={this.saveChanges}>Save changes</Button> : null;
         console.log(this.state.data);
         if (this.state.data.length === 0) {
             return (
@@ -103,6 +104,7 @@ class Menu extends Component<{},Props> {
                     <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
                 </Container>
+                {saveButton}
             </div>
             )
         }

@@ -8,11 +8,17 @@ type Props = {
   isAdmin?: boolean,
 }
 
-class Menu extends Component<{},Props> {
+type State = {
+  data: Object,
+  dirty: boolean,
+}
+
+class Menu extends Component<State,Props> {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            dirty: false,
         }
     }
 
@@ -25,6 +31,15 @@ class Menu extends Component<{},Props> {
       } else {
         menuRef.on('value', this.updateToSnapshot);
       }
+
+      window.addEventListener("beforeunload", e => {
+        if (this.state.dirty) {
+            const message = "You have unsaved changes to the menu. Are you sure you want to leave the page?";
+            e.preventDefault();
+            e.returnValue = message;
+            return message;
+        }
+      });
     }
 
 
@@ -44,6 +59,7 @@ class Menu extends Component<{},Props> {
 
       console.log("Setting menu to", this.state.data);
       menuRef.set(this.state.data);
+      this.setState({dirty: false});
     }
 
     addCategory = () => {
@@ -57,7 +73,12 @@ class Menu extends Component<{},Props> {
       }
       maxId++;
       data["" + maxId] = {name: "Name Here", description: "Description Here", items: []};
-      this.setState({data}, this.saveChanges);
+      this.setState({data});
+      this.onAdminChange();
+    }
+
+    onAdminChange() {
+      this.setState({dirty: true});
     }
 
     createCategories(data) {

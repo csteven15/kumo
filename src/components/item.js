@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import EditableField from './EditableField'
 
 class Item extends Component {
 
@@ -79,14 +80,14 @@ class Item extends Component {
                 </Row>
                 <Row>
                     <Col style={{fontSize: "11px", textAlign: "left"}}>
-                        {this.description()}                        
+                        <EditableField defaultValue={this.props.description} canEdit={true} id="description" onUpdateValue ={()=>{}}>{this.description()}</EditableField>
                     </Col>
                 </Row>
             </Container>
         );
     }
 
-    
+
 };
 
 

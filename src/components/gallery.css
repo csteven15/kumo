@@ -1,7 +1,18 @@
 .gallery {
   display: inline-block;
   minHeight: 1px;
-  width: 75%;
+  margin: 10px;
+  width: 70%;
   border: 0px solid #ddd;
   overflow: auto;
+}
+
+.tile-viewport {
+  box-shadow: 3px 3px 5px grey;
+}
+
+.loadingText {
+  font-family: cursive;
+  font-size: 16pt;
+  margin: 50px;
 }

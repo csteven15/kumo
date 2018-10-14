@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import GridGallery from 'react-grid-gallery';
+import GridGallery from './react-grid-gallery-modified/Gallery';
 import './gallery.css';
 import Firebase from './../fire';
 import Fade from 'react-reveal/Fade';
@@ -37,8 +37,7 @@ class Gallery extends Component {
       if (allImagesLoaded()) {
         console.log("State set on reentry");
         // We are done!
-        this.state.images = imagesLoaded;
-        this.setState(this.state);
+        this.setState({ images: imagesLoaded });
       } else {
         // For each of the image names, we want to get the image's download URL
         // and then the image's thumbnail download url and width and height. On
@@ -71,8 +70,7 @@ class Gallery extends Component {
                   console.log("State set on " + element);
                   imagesLoaded.sort(compareImages);
                   // We are done!
-                  this.state.images = imagesLoaded;
-                  this.setState(this.state);
+                  this.setState({ images: imagesLoaded });
                 }
               };
             }).catch(logFirebaseError);

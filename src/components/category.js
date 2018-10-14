@@ -7,11 +7,12 @@ class Category extends Component {
 
     listItems() {
         let listOfItems = this.props.data.items;
+        let col = this.props.col;
         let itemsList = [];
         for (var i in listOfItems) {
             const { name, description, price, isHot, isRaw, optionPriceSetting, optionPriceAugmenting } = listOfItems[i];
             itemsList.push(
-                <Col sm="6">
+                <Col sm={col}>
                     <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} />
                 </Col>
             );
@@ -26,9 +27,7 @@ class Category extends Component {
     footnote() {
         if (this.props.data.footnote) {
             return (
-                <div>
-                    <p><strong>*** Additional Protein: </strong>{this.props.data.footnote} <strong>***</strong></p>
-                </div>
+                <p><strong>*** Additional Protein: </strong>{this.props.data.footnote} <strong>***</strong></p>
             );
         }
     }
@@ -46,38 +45,44 @@ class Category extends Component {
             }
             // console.log(priceList);
             let finalPrice = priceList.join(' ~ ');
-            return finalPrice;
+            return (
+                <Row>
+                    <Col style={{textAlign: "left"}}>
+                        <h6><strong>{finalPrice}</strong></h6>
+                    </Col>
+                </Row>
+            );
         }
     }
 
     description() {
         let description = this.props.data.description;
         if (description) {
-            return (<h6>{description}</h6>);
+            return (
+                <Row>
+                  <Col sm="12" style={{textAlign: "left"}}>
+                    {description}
+                  </Col>
+
+                </Row>
+            );
         }
     }
 
     render() {
       let contents = null;
-      console.log(this.props.data);
+    //   console.log(this.props.data);
       if (this.props.data) {
         contents = (
           <div>
           <Container>
               <Row>
-                  <Col sm="4" style={{textAlign: "left"}}>
+                  <Col style={{textAlign: "left"}}>
                     <h2><strong>{this.props.data.name}</strong></h2>
                   </Col>
-                  <Col sm="8" style={{textAlign: "right", verticalAlign: "text-bottom"}}>
-                    <h6><strong>{this.optionPriceSetting()}</strong></h6>
-                  </Col>
               </Row>
-              <Row>
-                  <Col sm="12" style={{textAlign: "left"}}>
-                    {this.description()}
-                  </Col>
-                  
-              </Row>
+              {this.optionPriceSetting()}
+              {this.description()}
           </Container>
           <hr />
           <Container>
@@ -91,7 +96,7 @@ class Category extends Component {
       } else {
         contents = <div><b>Add a new category</b></div>;
       }
-      
+
       return (
           <div>
             {contents}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import GridGallery from './rggm/Gallery';
+import GridGallery from 'react-grid-gallery';
 import './gallery.css';
 import Firebase from './../fire';
 import Fade from 'react-reveal/Fade';
@@ -98,6 +98,7 @@ class Gallery extends Component {
             <Fade big>
               <p className="loadingText">Preparing delicious dishes...</p>
             </Fade>
+            <div className="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
           </div>
         );
       }

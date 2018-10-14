@@ -63,31 +63,17 @@ class Item extends Component {
         }
     }
 
-    // priceAugmenting() {
-    //     let optionPriceAugmenting = this.props.optionPriceAugmenting;
-    //     if (optionPriceAugmenting) {
-    //         let optionList = [];
-    //         // need to add base price and augment the price
-    //         for (var i in optionPriceAugmenting) {
-    //             for (var j in optionPriceAugmenting[i].options) {
-    //                 optionList.push(<p>{optionPriceAugmenting[i].options[j].text}</p>)
-    //             }
-    //         }
-    //         return optionList;
-    //     }
-    // }
-
     render() {
 
         return (
             <Container style={{padding: "2px"}}>
                 <Row>
-                    <Col sm="6" style={{textAlign: "left"}}>
+                    <Col style={{textAlign: "left"}}>
                     <div>
                         <h6 style={{float: "left"}}><strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
                     </div>
                     </Col>
-                    <Col sm="6"  style={{textAlign: "right"}}>
+                    <Col style={{textAlign: "right"}}>
                         <h6><strong>{this.priceSetting()}</strong></h6>
                     </Col>
                 </Row>

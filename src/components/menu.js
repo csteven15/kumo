@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import { Container, Jumbotron } from 'reactstrap';
 import Firebase from './../fire';
 import Category from './category';
+import Fade from 'react-reveal/Fade';
 
 type Props = {
   isAdmin?: boolean,
@@ -15,7 +16,7 @@ class Menu extends Component<{},Props> {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
       let database = Firebase.database();
       let menuRef = database.ref('menu');
 
@@ -65,7 +66,7 @@ class Menu extends Component<{},Props> {
             category.push(
                 <div key={key}>
                     <Jumbotron>
-                        <Category data={data[key]} updateData={this.updateData} />
+                        <Category data={data[key]} updateData={this.updateData} col={"6"} />
                     </Jumbotron>
                 </div>
             );
@@ -85,15 +86,27 @@ class Menu extends Component<{},Props> {
     }
 
     render() {
-      return (
-          <div>
-              <br />
-              <br />
-              <Container>
-                  {this.createCategories(this.state.data)}
-              </Container>
-          </div>
-      )
+        console.log(this.state.data);
+        if (this.state.data.length === 0) {
+            return (
+            <div>
+                <br />
+                <Fade big>
+                    <h3 style={{fontFamily: "cursive",fontSize: "16pt",margin: "50px"}}>Loading Menu...</h3>
+                </Fade>
+            </div>
+            );
+        } else {
+            return (
+                <div>
+                <br />
+                <br />
+                <Container>
+                    {this.createCategories(this.state.data)}
+                </Container>
+            </div>
+            )
+        }
     }
 
 };

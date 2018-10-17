@@ -185,7 +185,10 @@ class Gallery extends Component {
     buildImageRow (items, containerWidth) {
         var row = [];
         var len = 0;
-        var imgMargin = 2 * this.props.margin;
+        // Note that, for some reason, removing the +1 I have added visually
+        // breaks the image to row assignment that happens here. I found this
+        // by about an hour of nearly-blind experimentation. The +1 is key!
+        var imgMargin = 2 * this.props.margin + 1;
         while(items.length > 0 && len < containerWidth) {
             var item = items.shift();
             row.push(item);

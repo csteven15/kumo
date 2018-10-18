@@ -14,6 +14,7 @@ class Navigation extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
+        this.closeNavbar = this.closeNavbar.bind(this);
         this.state = {
             isOpen: false
         };
@@ -23,24 +24,30 @@ class Navigation extends Component {
             isOpen: !this.state.isOpen
         });
     }
+    closeNavbar() {
+        this.setState({
+            isOpen: false
+        });
+        window.scrollTo(0,0);
+    }
     render() {
         return (
-            <Navbar color="dark" dark expand="md" fixed="top" style={{paddingLeft: "2em", paddingRight: "2em"}}>
-                <NavbarBrand href="/" style={{ fontSize: '24px'}}><strong>Kumo Asian Kitchen</strong></NavbarBrand>
+            <Navbar color="light" light expand="md" fixed="top" style={{paddingLeft: "2em", paddingRight: "2em"}}>
+                <NavbarBrand href="/" style={{ fontSize: '24px', marginLeft: '2%'}}><img src={require('../images/logo.png')} alt="Kumo Logo" width="80" /></NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
+                    <Nav className="ml-auto" navbar style={{fontFamily: "Rochester, sans-serif"}}>
                         <NavItem>
-                            <NavLink tag={Link} to="/"><strong>Home</strong></NavLink>
+                            <NavLink tag={Link} to="/" onClick={this.closeNavbar}><strong>Home</strong></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/menu"><strong>Menu</strong></NavLink>
+                            <NavLink tag={Link} to="/menu" onClick={this.closeNavbar}><strong>Menu</strong></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/gallery"><strong>Gallery</strong></NavLink>
+                            <NavLink tag={Link} to="/gallery" onClick={this.closeNavbar}><strong>Gallery</strong></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/contact"><strong>Contact Us</strong></NavLink>
+                            <NavLink tag={Link} to="/contact" onClick={this.closeNavbar}><strong>Contact Us</strong></NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

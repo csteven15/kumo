@@ -18,6 +18,9 @@ const styles = {
   }
 };
 
+document.body.style.backgroundColor = "#ffffff";
+document.body.style.overflowX = "hidden";
+
 class App extends Component {
   render() {
     return (

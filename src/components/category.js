@@ -78,7 +78,7 @@ class Category extends Component {
           <Container>
               <Row>
                   <Col style={{textAlign: "left"}}>
-                    <h2><strong>{this.props.data.name}</strong></h2>
+                    <h2 style={{color: "#C42C18"}}><strong>{this.props.data.name}</strong></h2>
                   </Col>
               </Row>
               {this.optionPriceSetting()}

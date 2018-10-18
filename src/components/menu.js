@@ -65,9 +65,9 @@ class Menu extends Component<{},Props> {
         for (var key in data) {
             category.push(
                 <div key={key}>
-                    <Jumbotron>
-                        <Category data={data[key]} updateData={this.updateData} col={"6"} />
-                    </Jumbotron>
+                    <Category data={data[key]} updateData={this.updateData} col={"6"} />
+                    <br />
+                    <br />
                 </div>
             );
         }
@@ -75,9 +75,7 @@ class Menu extends Component<{},Props> {
         if (this.props.isAdmin) {
             category.push(
                 <div key='_newItem' onClick={this.addCategory}>
-                    <Jumbotron>
-                        <Category data={null} />
-                    </Jumbotron>
+                    <Category data={null} />
                 </div>
             );
         }
@@ -102,6 +100,7 @@ class Menu extends Component<{},Props> {
                 <br />
                 <br />
                 <Container>
+                    <h1><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
                 </Container>
             </div>

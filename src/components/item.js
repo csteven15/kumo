@@ -10,7 +10,7 @@ class Item extends Component {
                     &nbsp;&nbsp;
                     <img src={require('../images/fire.svg')} width="10" />
                     &nbsp;&nbsp;
-                    <img src={require('../images/raw.jpg')} width="15" />
+                    <img src={require('../images/raw.png')} width="15" />
                 </div>
             );
         } else if (this.props.isHot === true) {
@@ -24,7 +24,7 @@ class Item extends Component {
             return (
                 <div style={{float:"right"}}>
                     &nbsp;&nbsp;
-                    <img src={require('../images/raw.jpg')} width="15" />
+                    <img src={require('../images/raw.png')} width="15" />
                 </div>
             );
         }
@@ -58,7 +58,7 @@ class Item extends Component {
                 }
             }
             // console.log(priceList);
-            let finalPrice = priceList.join(' ~ ');
+            let finalPrice = priceList.join(' ');
             return finalPrice;
         }
     }

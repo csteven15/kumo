@@ -63,29 +63,26 @@ class Home extends Component {
     render() {
         const content = [
             {
-                title: 'Vulputate Mollis Ultricies Fermentum Parturient',
-                description:
-                'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo.',
+                title: 'Kumo Asian Kitchen',
+                description: '767 South SR 434',
                 button: 'Read More',
                 image: require('../images/sushiCarousel.jpg'),
-                subDescription: 'Nullam id dolor id nibh ultricies vehicula ut id elit'
+                subDescription: 'Altamonte Springs, FL 32714'
             },
             {
-                title: 'Tortor Dapibus Commodo Aenean Quam',
-                description:
-                'Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur, porta ac consectetur ac, vestibulum at eros.',
-                button: 'Discover',
-                image: require('../images/salmonCarousel.jpg'),
-                subDescription: 'Aenean eu leo quam'
-            },
-            {
-                title: 'Phasellus volutpat metus',
-                description:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.',
+                title: '14 Different Types of Sushi!',
+                description: '',
                 button: 'Buy now',
                 image: require('../images/chopsticksCarousel.jpg'),
-                subDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-            }
+                subDescription: 'Check out our menu for details'
+            },
+			{
+                title: 'Place an order today!',
+                description: '',
+                button: 'Discover',
+                image: require('../images/salmonCarousel.jpg'),
+                subDescription: '(407)270-6587'
+            },
         ];
         if (this.state.sushiBurrito.length === 0 || this.state.appetizer.length === 0) {
             return (
@@ -110,12 +107,12 @@ class Home extends Component {
                                     <br />
                                     <br />
                                     <br />
-                                    <div className="inner" style={{color: "#FFFFFF", textShadow: "2px 2px #000000"}}>
-                                        <h1><strong>{item.title}</strong></h1>
-                                        <p>{item.description}</p>
+                                    <div className="inner" style={{color: "#FFFFFF"}}>
+                                        <h1 style = {{ textShadow: "2px 2px #000000"}}><strong>{item.title}</strong></h1>
+                                        <p><strong>{item.description}</strong></p>
                                         {/* <button>{item.button}</button> */}
                                     </div>
-                                    <div className="inner" style={{color: "#FFFFFF", textShadow: "2px 2px #000000"}}>
+                                    <div className="inner" style={{color: "#FFFFFF"}}>
                                         <p><strong>{item.subDescription}</strong></p>
                                     </div>
                                 </div>
@@ -126,22 +123,24 @@ class Home extends Component {
                     <br />
                     <Container>
                         <Row>
-                            <Col sm><Fade left><img src={require('../images/storeFront.jpg')} style={styles.image} alt="Store Front" /></Fade></Col>
-                            <Col sm><Fade right>
-                                <h4 style={styles.headingText}><span className="heading">Title</span></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa enim nec dui nunc. Elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Dignissim diam quis enim lobortis. Laoreet sit amet cursus sit amet dictum sit amet. Auctor augue mauris augue neque gravida in. Ut consequat semper viverra nam libero justo laoreet. Eros donec ac odio tempor orci dapibus ultrices in. Vitae semper quis lectus nulla. Tortor at auctor urna nunc id. At elementum eu facilisis sed odio morbi. Morbi tristique senectus et netus et malesuada. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Ac tincidunt vitae semper quis. Cras ornare arcu dui vivamus arcu felis. Est velit egestas dui id. Neque egestas congue quisque egestas.</p>
-                            </Fade></Col>
+                            <Col sm="4"><Fade left><img src={require('../images/storeFront.jpg')} style={styles.image} alt="Store Front" /></Fade></Col>
+                            <Col sm="8"><Fade right>
+                                <h4 style={styles.headingText}><span className="heading">Authentic Asian Food Done Right!</span></h4>
+                                <br />
+								<p>Looking for a quick bite to eat but don't want to compromise on taste and quality. Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. A great place for sushi, hibachi, and bento. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Orlando area.</p>								
+							</Fade></Col>
                         </Row>
                     </Container>
                     <br />
                     <br />
                     <Container>
                         <Row>
-                            <Col sm><Fade left>
-                                <h4 style={styles.headingText}><span className="heading">Title</span></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed magna aliqua. Dignissim convallis aenean et tortor at risus. Ac auctor augue mauris augue neque gravida in fermentum et. Egestas sed sed risus pretium quam vulputate dignissim. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Facilisis magna etiam tempor orci. Vitae aliquet nec ullamcorper sit amet risus nullam. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Arcu risus quis varius quam quisque id. Scelerisque varius morbi enim nunc faucibus a. Vitae sapien pellentesque habitant morbi tristique senectus et netus. Felis bibendum ut tristique et egestas quis. Libero id faucibus nisl tincidunt eget nullam non. Egestas diam in arcu cursus euismod quis viverra nibh cras. Urna porttitor rhoncus dolor purus non enim. Vestibulum morbi blandit cursus risus at. In pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. Quis hendrerit dolor magna eget. Congue quisque egestas diam in arcu cursus euismod quis viverra.</p>
-                            </Fade></Col>
-                            <Col sm><Fade right><img src={require('../images/insideStore.jpg')} style={styles.image} alt="Inside Store" /></Fade></Col>
+                            <Col sm="8"><Fade left>
+                                <h4 style={styles.headingText}><span className="heading">Fresh and Local Ingredients</span></h4>
+                                <br />
+								<p> Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with, at Kumo Asian Kitchen we cook in plain site right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>								
+							</Fade></Col>
+                            <Col sm="4"><Fade right><img src={require('../images/insideStore.jpg')} style={styles.image} alt="Inside Store" /></Fade></Col>
                         </Row>
                     </Container>
                     <br />
@@ -214,8 +213,8 @@ class Home extends Component {
 
 const styles = {
     image: {
-        width: '400px',
-        height: '400px'
+        width: '300px',
+        height: '300px'
     },
     headingText: {
         color: '#C42C18',

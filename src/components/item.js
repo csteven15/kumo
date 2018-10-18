@@ -65,8 +65,8 @@ class Item extends Component {
     }
 
     render() {
-
         return (
+<<<<<<< HEAD
             <Container style={{padding: "2px"}}>
                 <Row>
                     <Col style={{textAlign: "left"}}>
@@ -80,10 +80,36 @@ class Item extends Component {
                 </Row>
                 <Row>
                     <Col style={{fontSize: "11px", textAlign: "left"}}>
-                        <EditableField defaultValue={this.props.description} canEdit={true} id="description" onUpdateValue ={()=>{}}>{this.description()}</EditableField>
+                        <EditableField defaultValue={this.props.description} canEdit={true} id="description" onUpdateValue={this.props.updateItemData}>{this.description()}</EditableField>
                     </Col>
                 </Row>
             </Container>
+=======
+            <div>
+                <Container style={{padding: "2px"}}>
+                    <Row>
+                        <Col sm="10" style={{textAlign: "left"}}>
+                        <div>
+                            <h6 style={{float: "left"}}><strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
+                        </div>
+                        </Col>
+                        <Col sm="2"  style={{textAlign: "right"}}>
+                            <h6><strong>{this.price()}</strong></h6>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col style={{fontSize: "11px", textAlign: "left"}}>
+                            <EditableField defaultValue={this.props.description} canEdit={true} id="description" onUpdateValue={this.props.updateItemData}>{this.description()}</EditableField>
+                            {this.priceSetting()}
+                            {this.priceAugmenting()}
+
+                        </Col>
+                    </Row>
+                </Container>
+
+
+            </div>
+>>>>>>> Make description update with field, and add a remove button
         );
     }
 

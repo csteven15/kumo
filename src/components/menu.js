@@ -64,7 +64,7 @@ class Menu extends Component<State,Props> {
 
     addCategory = () => {
       var data = {...this.state.data};
-      let maxId = 0;
+      let maxId = -1;
       for (let key in data) {
         let id = parseInt(key);
         if (!isNaN(id)) {

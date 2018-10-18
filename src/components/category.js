@@ -40,7 +40,18 @@ class Category extends Component {
         return itemsList;
     }
     addItem = () => {
-      alert("Add item to " + this.props.data.name);
+      var data = {...this.props.data};
+      let maxId = -1;
+      for (let key in data.items) {
+        let id = parseInt(key);
+        console.log("Found " + key + " " + id);
+        if (!isNaN(id)) {
+          maxId = Math.max(id, maxId);
+        }
+      }
+      maxId++;
+      data["items"][maxId] = {name: "Default name", description: "Default description", isHot: false, isRaw: false};
+      this.props.updateCategoryData(data);
     }
 
     footnote() {

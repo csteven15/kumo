@@ -14,19 +14,15 @@ class Category extends Component {
             const updateItemData = (key, value) => {
               var data = {...this.props.data};
               data["items"][iCopy][key] = value;
-              console.log("upd ", key, value, iCopy);
-              console.log("Setting catdata to ", data);
               this.props.updateCategoryData(data);
             };
             const { name, description, price, isHot, isRaw, optionPriceSetting, optionPriceAugmenting } = listOfItems[i];
             itemsList.push(
-<<<<<<< HEAD
                 <Col sm={col}>
                     <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} updateItemData={updateItemData} />
 =======
-                <Col sm="4">
-                    <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} updateItemData={updateItemData} />
->>>>>>> Make description update with field, and add a remove button
+                    <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} updateItemData={updateItemData} isAdmin={this.props.isAdmin} />
+>>>>>>> Change the default text for a new entry
                 </Col>
             );
         }

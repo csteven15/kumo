@@ -25,7 +25,8 @@ class EditableField extends React.Component<State,Props> {
   }
 
   onClick = () => {
-      this.setState({isEditing: true});
+      this.setState({isEditing: true, currentValue: this.state.currentValue || (this.props.id + " here")});
+
   }
 
   onChange = (e) => {
@@ -35,13 +36,11 @@ class EditableField extends React.Component<State,Props> {
   handleSubmit = (e) => {
     e.preventDefault();
     const value = this.state.currentValue;
-    console.log("Submitting with key " + this.props.id + " and value " + value);
     this.props.onUpdateValue(this.props.id, value);
     this.setState({currentValue: this.props.defaultValue, isEditing: false});
   }
 
   handleRemove = (e) => {
-    console.log("Handling remove");
     e.preventDefault();
     this.props.onUpdateValue(this.props.id, null);
     this.setState({currentValue: this.props.defaultValue, isEditing: false});
@@ -65,7 +64,7 @@ class EditableField extends React.Component<State,Props> {
       return <span onClick={this.onClick}>{subComponent}</span>;
     }
 
-    return this.props.children;
+    return <span>{this.props.children}</span>;
   }
 }
 

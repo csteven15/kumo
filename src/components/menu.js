@@ -87,13 +87,12 @@ class Menu extends Component<State,Props> {
           const updateCategoryData = (catData) => {
             var data = {...this.state.data};
             data[key] = catData;
-            console.log("Set overall data to", data);
             this.setState({data});
             this.onAdminChange();
           };
             category.push(
                 <div key={key}>
-                    <Category data={data[key]} updateData={this.updateData} col={"6"} />
+                    <Category data={data[key]} updateCategoryData={this.updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
                     <br />
                     <br />
                 </div>

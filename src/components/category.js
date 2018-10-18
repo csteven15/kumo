@@ -26,11 +26,21 @@ class Category extends Component {
                 </Col>
             );
         }
+        if (this.props.isAdmin) {
+          itemsList.push(
+              <Col sm="4" style={{border: "1px dashed black", height: "50px"}} onClick={this.addItem}>
+                  <b>Add item</b>
+              </Col>
+          );
+        }
         // let result = Object.keys(listOfItems).map((key) => {
         //     return [Number(key), listOfItems[key]]
         // })
         // console.log(result)
         return itemsList;
+    }
+    addItem = () => {
+      alert("Add item to " + this.props.data.name);
     }
 
     footnote() {

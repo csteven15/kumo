@@ -30,8 +30,7 @@ class App extends Component {
           <div style={styles.content}>
             <Route path="/" exact component={Home} />
             <Route path="/menu" exact component={Menu} />
-            <Route path="/map" exact component={Map} />
-            <Route path="/gallery" exact component={Gallery} />
+            <Route path="/gallery" exact component={() => <div style={{width: "80%", margin: "auto"}}><Gallery title={true} style={{width: "80%"}} /></div>} />
             <Route path="/contact" exact component={Contact} />
             <Route path="/admin" exact component={AdminPage} />
           </div>

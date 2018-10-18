@@ -1,8 +1,8 @@
 .gallery {
   display: inline-block;
   margin: 10px;
-  width: 80%;
   overflow: auto;
+  width: 100%;
 }
 
 .tile-viewport {

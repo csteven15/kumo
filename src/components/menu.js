@@ -100,7 +100,7 @@ class Menu extends Component<{},Props> {
                 <br />
                 <br />
                 <Container>
-                    <h1><strong>Menu</strong></h1>
+                    <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
                 </Container>
             </div>

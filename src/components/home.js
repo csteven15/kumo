@@ -9,6 +9,8 @@ import Category from './category';
 import { Link } from 'react-router-dom';
 import { Parallax } from 'react-parallax';
 import './home.css';
+import Gallery from './gallery';
+import MapBox from './mapbox';
 
 const storage = Firebase.storage().ref();
 
@@ -126,9 +128,7 @@ class Home extends Component {
                         <Row>
                             <Col sm><Fade left><img src={require('../images/storeFront.jpg')} style={styles.image} alt="Store Front" /></Fade></Col>
                             <Col sm><Fade right>
-                                <h4 style={{color: "#C42C18"}}>Title</h4>
-                                <hr />
-                                <h5 style={{color: "#F16134"}}>Description</h5>
+                                <h4 style={styles.headingText}><span className="heading">Title</span></h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa enim nec dui nunc. Elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Dignissim diam quis enim lobortis. Laoreet sit amet cursus sit amet dictum sit amet. Auctor augue mauris augue neque gravida in. Ut consequat semper viverra nam libero justo laoreet. Eros donec ac odio tempor orci dapibus ultrices in. Vitae semper quis lectus nulla. Tortor at auctor urna nunc id. At elementum eu facilisis sed odio morbi. Morbi tristique senectus et netus et malesuada. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Ac tincidunt vitae semper quis. Cras ornare arcu dui vivamus arcu felis. Est velit egestas dui id. Neque egestas congue quisque egestas.</p>
                             </Fade></Col>
                         </Row>
@@ -138,9 +138,7 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col sm><Fade left>
-                                <h4 style={{color: "#C42C18"}}>Title</h4>
-                                <hr />
-                                <h5 style={{color: "#F16134"}}>Description</h5>
+                                <h4 style={styles.headingText}><span className="heading">Title</span></h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed magna aliqua. Dignissim convallis aenean et tortor at risus. Ac auctor augue mauris augue neque gravida in fermentum et. Egestas sed sed risus pretium quam vulputate dignissim. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Facilisis magna etiam tempor orci. Vitae aliquet nec ullamcorper sit amet risus nullam. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Arcu risus quis varius quam quisque id. Scelerisque varius morbi enim nunc faucibus a. Vitae sapien pellentesque habitant morbi tristique senectus et netus. Felis bibendum ut tristique et egestas quis. Libero id faucibus nisl tincidunt eget nullam non. Egestas diam in arcu cursus euismod quis viverra nibh cras. Urna porttitor rhoncus dolor purus non enim. Vestibulum morbi blandit cursus risus at. In pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. Quis hendrerit dolor magna eget. Congue quisque egestas diam in arcu cursus euismod quis viverra.</p>
                             </Fade></Col>
                             <Col sm><Fade right><img src={require('../images/insideStore.jpg')} style={styles.image} alt="Inside Store" /></Fade></Col>
@@ -179,7 +177,7 @@ class Home extends Component {
                     <br />
                     <Container>
                         <Fade top>
-                            <h3><strong>Preview of Menu</strong></h3>
+                            <h2 style={styles.headingText}><span className="heading">Preview of Menu</span></h2>
                         </Fade>
                       <Row>
                         <Col sm="6">
@@ -200,7 +198,14 @@ class Home extends Component {
                     </Fade>
                     <br />
                     <br />
-                    
+                    <h3 style={styles.headingText}><span className="heading">Gallery</span></h3>
+                    <Gallery title={false} numImages={7} style={{width: "95%"}} />
+                    <br />
+                    <Container>
+                        <h3 style={styles.headingText}><span className="heading">Contact</span></h3>
+                        <h4><strong>767 S State Rd 434 Suite 1040, Altamonte Springs, FL 32714</strong></h4>
+                    </Container>
+                    <MapBox />
                 </div>
             );
         }
@@ -211,6 +216,10 @@ const styles = {
     image: {
         width: '400px',
         height: '400px'
+    },
+    headingText: {
+        color: '#C42C18',
+        fontWeight: 'bold'
     }
 };
 

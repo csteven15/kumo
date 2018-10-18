@@ -1,3 +1,7 @@
 .slider {
     background-color: #000000;
 }
+.heading {
+    border-bottom: 1px solid #FFA949;
+    line-height: 3px;
+}

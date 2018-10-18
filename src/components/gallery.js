@@ -37,6 +37,7 @@ class Gallery extends Component {
         super(props);
         this.getNumberOfImagesToLoad = this.getNumberOfImagesToLoad.bind(this);
         this.allImagesLoaded = this.allImagesLoaded.bind(this);
+        this.renderTitle = this.renderTitle.bind(this);
         this.imageNames = { length: 999999999 };
         this.imagesLoaded = [];
         this.state = {
@@ -51,7 +52,7 @@ class Gallery extends Component {
     */
     getNumberOfImagesToLoad() {
       let imagesToLoad = this.props.numImages;
-      if (imagesToLoad == undefined || imagesToLoad == null) {
+      if (imagesToLoad === undefined || imagesToLoad == null) {
         imagesToLoad = this.imageNames.length;
       }
       if (imagesToLoad > this.imageNames.length) {
@@ -138,12 +139,21 @@ class Gallery extends Component {
       }
     }
 
+    renderTitle() {
+      if (this.props.title === true) {
+        return (
+          <h2 style={{color: "#C42C18"}}><strong>Gallery</strong></h2>
+        );
+      }
+    }
+
     render() {
       if (this.allImagesLoaded()) {
         debugLog("Final gallery is rendering!");
         return (
           <div className="gallery">
-
+            <br />
+            {this.renderTitle()}
             <GridGallery images={this.state.images} rowHeight={250} margin={6} enableImageSelection={false} showLightboxThumbnails={false}/>
 
           </div>

@@ -51,7 +51,7 @@ class EditableField extends React.Component<State,Props> {
     if (this.state.isEditing) {
       return (
         <form onSubmit={this.handleSubmit}>
-          <input style={{width: '200px'}} type="text" autoFocus onBlur={this.handleSubmit} value={this.state.currentValue} onChange={this.onChange} />
+          <input style={{width: '200px'}} type="text" autoFocus value={this.state.currentValue} onChange={this.onChange} />
           <button type="button" onClick={this.handleRemove}>X</button>
         </form>
       );

@@ -5,3 +5,8 @@
     border-bottom: 1px solid #FFA949;
     line-height: 3px;
 }
+
+.infobox td {
+  padding-left: 5px;
+  padding-right: 5px;
+}

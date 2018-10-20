@@ -121,28 +121,85 @@ class Home extends Component {
                   </div>
                   <br />
                   <br />
+
                   <Container>
+                    <Row>
+                      <Col sm="12">
+                        <table className="infobox">
+                          <tbody>
+                            <tr>
+                              <td valign="top" width="33%">
+                                <Fade left>
+                                  <img src={require('../images/storeFront.jpg')} style={styles.image} alt="Store Front" />
+                                </Fade>
+                              </td>
+                              <td valign="top" width="67%">
+                                <Fade right>
+                                  <h4 style={styles.headingText}><span className="heading">Authentic Asian Food Done Right!</span></h4>
+                                  <br />
+                                  <p>Looking for a quick bite to eat but don't want to compromise on taste and quality. Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. A great place for sushi, hibachi, and bento. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Orlando area.</p>
+                                </Fade>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </Col>
+                    </Row>
+                  </Container>
+                  <br />
+                  <br />
+                  <Container>
+                    <Row>
+                      <Col sm="12">
+                        <table className="infobox">
+                          <tbody>
+                            <tr>
+                              <td valign="top" width="67%">
+                                <Fade left>
+                                  <h4 style={styles.headingText}><span className="heading">Fresh and Local Ingredients</span></h4>
+                                  <br />
+                                  <p> Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with, at Kumo Asian Kitchen we cook in plain site right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>
+                                </Fade>
+                              </td>
+                              <td valign="top" width="33%">
+                                <Fade right>
+                                  <img src={require('../images/insideStore.jpg')} style={styles.image} alt="Inside Store" />
+                                </Fade>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </Col>
+                    </Row>
+                  </Container>
+
+                  {/* <Container>
                     <Row>
                       <Col sm="4"><Fade left><img src={require('../images/storeFront.jpg')} style={styles.image} alt="Store Front" /></Fade></Col>
                       <Col sm="8"><Fade right>
-                        <h4 style={styles.headingText}><span className="heading">Authentic Asian Food Done Right!</span></h4>
-                        <br />
-                        <p>Looking for a quick bite to eat but don't want to compromise on taste and quality. Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. A great place for sushi, hibachi, and bento. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Orlando area.</p>
+                    <h4 style={styles.headingText}><span className="heading">Authentic Asian Food Done Right!</span></h4>
+                    <br />
+                    <p>Looking for a quick bite to eat but don't want to compromise on taste and quality. Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. A great place for sushi, hibachi, and bento. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Orlando area.</p>
                       </Fade></Col>
                     </Row>
-                  </Container>
+                  </Container> */}
+
+
+
                   <br />
                   <br />
-                  <Container>
+
+                  {/* <Container>
                     <Row>
                       <Col sm="8"><Fade left>
-                        <h4 style={styles.headingText}><span className="heading">Fresh and Local Ingredients</span></h4>
-                        <br />
-                        <p> Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with, at Kumo Asian Kitchen we cook in plain site right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>
+                    <h4 style={styles.headingText}><span className="heading">Fresh and Local Ingredients</span></h4>
+                    <br />
+                    <p> Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with, at Kumo Asian Kitchen we cook in plain site right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>
                       </Fade></Col>
                       <Col sm="4"><Fade right><img src={require('../images/insideStore.jpg')} style={styles.image} alt="Inside Store" /></Fade></Col>
                     </Row>
-                  </Container>
+                  </Container> */}
+
                   <br />
                   <br />
                   <Parallax bgImage={require('../images/plate.jpg')} blur={{ min: -1, max: 3 }} strength={500}>

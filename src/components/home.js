@@ -87,10 +87,10 @@ class Home extends Component {
         if (this.state.sushiBurrito.length === 0 || this.state.appetizer.length === 0) {
             return (
                 <div>
-                    <br />
-                    <Fade big>
-                        <h3 style={{fontFamily: "cursive",fontSize: "16pt",margin: "50px"}}>Loading Home Page...</h3>
-                    </Fade>
+                  <br />
+                  <Fade big>
+                    <h3 style={{fontFamily: "cursive",fontSize: "16pt",margin: "50px"}}>Loading Home Page...</h3>
+                  </Fade>
                 </div>
             );
         } else {
@@ -198,13 +198,13 @@ class Home extends Component {
                   <br />
                   <br />
                   <h3 style={styles.headingText}><span className="heading">Gallery</span></h3>
-                  <Gallery title={false} numRows={2} style={{width: "95%"}} />
-                    <br />
-                    <Container>
-                        <h3 style={styles.headingText}><span className="heading">Contact</span></h3>
-                        <h4><strong>767 S State Rd 434 Suite 1040, Altamonte Springs, FL 32714</strong></h4>
-                    </Container>
-                    <MapBox />
+                  <Gallery title={false} numRows={2} />
+                  <br />
+                  <Container>
+                    <h3 style={styles.headingText}><span className="heading">Contact</span></h3>
+                    <h4><strong>767 S State Rd 434 Suite 1040, Altamonte Springs, FL 32714</strong></h4>
+                  </Container>
+                  <MapBox />
                 </div>
             );
         }

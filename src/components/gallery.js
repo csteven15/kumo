@@ -154,7 +154,7 @@ class Gallery extends Component {
           <div className="gallery">
             <br />
             {this.renderTitle()}
-            <GridGallery images={this.state.images} rowHeight={250} margin={6} enableImageSelection={false} showLightboxThumbnails={false}/>
+            <GridGallery images={this.state.images} rowHeight={250} margin={6} enableImageSelection={false} showLightboxThumbnails={false} numRows={this.props.numRows}/>
 
           </div>
         );

@@ -230,9 +230,12 @@ class Gallery extends Component {
             this.setThumbScale(items[t]);
         }
 
+        // This section contains modifications to ensure that the new added
+        // prop numRows, is supported. It should enforce that a maximum of
+        // numRows gallery rows get displayed.
         var thumbs = [];
         var rows = [];
-        while(items.length > 0) {
+        while(items.length > 0 && (rows.length < this.props.numRows || this.props.numRows === undefined)) {
             rows.push(this.buildImageRow(items, containerWidth));
         }
 

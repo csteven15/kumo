@@ -5,6 +5,10 @@ import { Container, Row, Col, Table } from 'reactstrap';
 const Footer = () => {
     return (
         <div style={styles.containerStyle}>
+          <br />
+          <br />
+          <br />
+          
             <Container>
                 <Row>
                     <Col style={{color: '#000000'}}>© 2018 Team Blue</Col>

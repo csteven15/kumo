@@ -24,7 +24,7 @@ class Map extends Component {
 
     componentDidMount() {
         const { lng, lat, zoom } = this.state;
-    
+
         const map = new mapboxgl.Map({
           container: this.mapContainer,
           style: 'mapbox://styles/mapbox/streets-v9',
@@ -42,10 +42,10 @@ class Map extends Component {
             .setLngLat([lng, lat])
             .setPopup(popup)
             .addTo(map);
-    
+
         map.on('move', () => {
           const { lng, lat } = map.getCenter();
-    
+
           this.setState({
             lng: lng.toFixed(4),
             lat: lat.toFixed(4),
@@ -53,11 +53,11 @@ class Map extends Component {
           });
         });
 
-        
+
     }
 
 
-    
+
     render() {
         return (
             <div style={styles.mapboxContainer}>
@@ -72,12 +72,14 @@ const styles = {
     mapboxContainer: {
         display: 'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        width: '100%',
+        height: '100%'
     },
     mapboxStyle: {
         textAlign: 'justify',
-        width: '100vw',
-        height: '50vh'
+        width: '100%',
+        height: '100%'
     }
 }
 

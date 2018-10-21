@@ -286,7 +286,16 @@ class Home extends Component {
                     <h3 style={styles.headingText}><span className="heading">Contact</span></h3>
                     <h4><strong>767 S State Rd 434 Suite 1040, Altamonte Springs, FL 32714</strong></h4>
                   </Container>
-                  <MapBox />
+                  <MediaQuery query="(max-height: 768px)">
+                    <div style={{ width: '100%', height: '300px' }}>
+                      <MapBox />
+                    </div>
+                  </MediaQuery>
+                  <MediaQuery query="(min-height: 768px)">
+                    <div style={{ width: '100%', height: '500px' }}>
+                      <MapBox />
+                    </div>
+                  </MediaQuery>
                 </div>
             );
         }

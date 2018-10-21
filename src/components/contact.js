@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Table } from 'reactstrap';
 import Map from './mapbox';
 import Fade from 'react-reveal/Fade';
+import './contact.css';
+import MediaQuery from 'react-responsive';
 
 class Contact extends Component {
     constructor(props) {
@@ -21,49 +23,93 @@ class Contact extends Component {
         if (this.state.render === false) {
             return (
                 <div>
-                    <br />
-                    <Fade big>
-                        <h3 style={{fontFamily: "cursive",fontSize: "16pt",margin: "50px"}}>Loading Maps...</h3>
-                    </Fade>
+                  <br />
+                  <Fade big>
+                    <h3 style={{fontFamily: "cursive",fontSize: "16pt",margin: "50px"}}>Loading Maps...</h3>
+                  </Fade>
                 </div>
             );
         } else {
             return (
-                <div>
-                    <br />
-                    <br />
+                <div className="contact">
+                  <br />
+                  <br />
+
+                  <MediaQuery query="(min-width: 768px)">
                     <Container>
-                        <Row>
-                            <Col sm="5" style={{textAlign: "left"}}>
-                                <h3><strong>Contact Kumo Asian Kitchen</strong></h3>
-                                <h4>Address</h4>
-                                <h5>Kumo Asian Kitchen</h5>
-                                <h6>767 South SR 434<br />Altamonte Springs, Fl 32714</h6>
-                                <h6>Tel: (407) 270-6587</h6>
-                                <br />
-                                <h4>Opening Hours</h4>
-                                <Row>
-                                    <Col>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs="6">
-                                        <h5>Monday - Saturday</h5>
-                                        <h6>11:00 AM to 9:30 PM</h6>
-                                    </Col>
-                                    <Col xs="6">
-                                        <h5>Sunday</h5>
-                                        <h6>12:00 AM to 9:30 PM</h6>
-                                    </Col>
-                                </Row>
+                      <Row>
+                        <Col sm="5" style={{textAlign: "left"}}>
+                          <h3><strong>Contact Kumo Asian Kitchen</strong></h3>
+                          <h4>Address</h4>
+                          <h5>Kumo Asian Kitchen</h5>
+                          <h6>767 South SR 434<br />Altamonte Springs, Fl 32714</h6>
+                          <h6>Tel: (407) 270-6587</h6>
+                          <br />
+                          <h4>Opening Hours</h4>
+                          <Row>
+                            <Col>
                             </Col>
-                            <Col xs="7">
-                                <Map />
+                          </Row>
+                          <Row>
+                            <Col xs="6">
+                              <h5>Monday - Saturday</h5>
+                              <h6>11:00 AM to 9:30 PM</h6>
                             </Col>
-                        </Row>
+                            <Col xs="6">
+                              <h5>Sunday</h5>
+                              <h6>12:00 AM to 9:30 PM</h6>
+                            </Col>
+                          </Row>
+                        </Col>
+                        <Col xs="7">
+                          <div className="contactMapContainer">
+                            <Map />
+                          </div>
+                        </Col>
+                      </Row>
                     </Container>
-                    <br />
-                    <br />
+                  </MediaQuery>
+
+                  <MediaQuery query="(max-width: 768px)">
+                    <Container>
+                      <Row>
+                        <Col sm="12" style={{textAlign: "left"}}>
+                          <h3><strong>Contact Kumo Asian Kitchen</strong></h3>
+                          <h4>Address</h4>
+                          <h5>Kumo Asian Kitchen</h5>
+                          <h6>767 South SR 434<br />Altamonte Springs, Fl 32714</h6>
+                          <h6>Tel: (407) 270-6587</h6>
+                          <br />
+                          <h4>Opening Hours</h4>
+                          <Row>
+                            <Col>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xs="6">
+                              <h5>Monday - Saturday</h5>
+                              <h6>11:00 AM to 9:30 PM</h6>
+                            </Col>
+                            <Col xs="6">
+                              <h5>Sunday</h5>
+                              <h6>12:00 AM to 9:30 PM</h6>
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Row>
+                      <br />
+                      <Row>
+                        <Col xs="12">
+                          <div className="contactMapContainer">
+                            <Map />
+                          </div>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </MediaQuery>
+
+                  <br />
+                  <br />
                 </div>
             );
         }

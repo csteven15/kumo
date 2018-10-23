@@ -23,13 +23,6 @@ class Category extends Component {
                 </Col>
             );
         }
-        if (this.props.isAdmin) {
-          itemsList.push(
-              <Col sm="4" style={{border: "1px dashed black", height: "50px"}} onClick={this.addItem}>
-                  <b>Add item</b>
-              </Col>
-          );
-        }
         // let result = Object.keys(listOfItems).map((key) => {
         //     return [Number(key), listOfItems[key]]
         // })
@@ -96,12 +89,16 @@ class Category extends Component {
         }
     }
 
+    removeCategory = () => {
+      this.props.updateCategoryData(null);
+    }
+
     render() {
-      let contents = null;
-    //   console.log(this.props.data);
-      if (this.props.data) {
-        contents = (
-          <div>
+      let newItemButton = this.props.isAdmin ? (
+        <div><br/><button onClick={this.addItem}>Add item</button><button onClick={this.removeCategory}>Remove category</button><br/><br/></div>
+      ) : null;
+      return (
+        <div>
           <Container>
               <Row>
                   <Col style={{textAlign: "left"}}>
@@ -117,16 +114,8 @@ class Category extends Component {
                   {this.listItems()}
               </Row>
           </Container>
+          {newItemButton}
           {this.footnote()}
-          </div>
-      );
-      } else {
-        contents = <div><b>Add a new category</b></div>;
-      }
-
-      return (
-          <div>
-            {contents}
           </div>
       );
     }

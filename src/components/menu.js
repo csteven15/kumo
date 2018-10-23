@@ -86,23 +86,17 @@ class Menu extends Component<State,Props> {
         for (let key in data) {
           const updateCategoryData = (catData) => {
             var data = {...this.state.data};
-            data[key] = catData;
+            if (!catData) {
+              delete data[key];
+            } else {
+              data[key] = catData;
+            }
             this.setState({data});
             this.onAdminChange();
           };
             category.push(
                 <div key={key}>
                     <Category data={data[key]} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
-                    <br />
-                    <br />
-                </div>
-            );
-        }
-
-        if (this.props.isAdmin) {
-            category.push(
-                <div key='_newItem' onClick={this.addCategory}>
-                    <Category data={null} col={"6"}  />
                     <br />
                     <br />
                 </div>
@@ -125,6 +119,9 @@ class Menu extends Component<State,Props> {
             </div>
             );
         } else {
+          let newCategoryButton = this.props.isAdmin ? (
+              <div><button onClick={this.addCategory}>Add category</button><br/><br/></div>
+          ) : null;
             return (
                 <div>
                 <br />
@@ -132,6 +129,7 @@ class Menu extends Component<State,Props> {
                 <Container>
                     <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
+                    {newCategoryButton}
                 </Container>
                 {saveButton}
             </div>

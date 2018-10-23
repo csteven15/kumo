@@ -79,7 +79,7 @@ class Item extends Component {
                 </Row>
                 <Row>
                     <Col style={{fontSize: "11px", textAlign: "left"}}>
-                        <EditableField defaultValue={this.props.description} canEdit={true} id="description" onUpdateValue={this.props.updateItemData}>{this.description()}</EditableField>
+                        <EditableField defaultValue={this.props.description} canEdit={this.props.isAdmin} id="description" onUpdateValue={this.props.updateItemData}>{this.description()}</EditableField>
                     </Col>
                 </Row>
             </Container>

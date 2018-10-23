@@ -70,7 +70,7 @@ class Item extends Component {
                 <Row>
                     <Col style={{textAlign: "left"}}>
                     <div>
-                        <h6 style={{float: "left"}}><EditableField defaultValue={this.props.name} canEdit={this.props.isAdmin} id="name" onUpdateValue={this.props.updateItemData}><strong>{this.props.name}</strong></EditableField>{this.isHotRaw()}</h6>
+                        <h6 style={{float: "left"}}><EditableField defaultValue={this.props.name} canEdit={this.props.isAdmin} noDelete={true} id="name" onUpdateValue={this.props.updateItemData}><strong>{this.props.name}</strong></EditableField>{this.isHotRaw()}</h6>
                     </div>
                     </Col>
                     <Col style={{textAlign: "right"}}>

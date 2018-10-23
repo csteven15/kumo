@@ -12,8 +12,11 @@ class AdminControls extends React.Component<{},Props> {
     return (
         <div style={{ backgroundColor: '#fcfcfc' }}>
           <Col>
+          <br/>
             <Button style={{margin: '5px'}} onClick={this.handleSignOut}>Logout</Button>
-            <div>Welcome {this.props.user.email} to Admin page!</div>
+            <div>Logged in as: {this.props.user.email}</div><br/>
+            To use the admin panel, simply click one of the buttons, or click on any text to edit it.<br/>
+            When editting text, hit enter to finish editting, or click the X to remove this item.
             <Menu isAdmin={true}/>
           </Col>
         </div>

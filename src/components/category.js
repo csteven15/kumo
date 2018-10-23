@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Item from './item';
+import EditableField from './EditableField'
 
 
 class Category extends Component {
@@ -41,6 +42,15 @@ class Category extends Component {
       }
       maxId++;
       data["items"][maxId] = {name: "Default name", description: "Default description", isHot: false, isRaw: false};
+      this.props.updateCategoryData(data);
+    }
+
+    updateField = (id, name) => {
+      var data = {...this.props.data};
+      data[id] = name;
+      if (!name) {
+        delete data[id];
+      }
       this.props.updateCategoryData(data);
     }
 
@@ -102,11 +112,11 @@ class Category extends Component {
           <Container>
               <Row>
                   <Col style={{textAlign: "left"}}>
-                    <h2 style={{color: "#C42C18"}}><strong>{this.props.data.name}</strong></h2>
+                    <h2 style={{color: "#C42C18"}}><EditableField defaultValue={this.props.data.name} canEdit={this.props.isAdmin} id="name" noDelete onUpdateValue={this.updateField}><strong>{this.props.data.name}</strong></EditableField></h2>
                   </Col>
               </Row>
               {this.optionPriceSetting()}
-              {this.description()}
+              <EditableField defaultValue={this.props.data.description} canEdit={this.props.isAdmin} id="description" onUpdateValue={this.updateField}>{this.description()}</EditableField>
           </Container>
           <hr />
           <Container>

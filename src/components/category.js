@@ -19,10 +19,7 @@ class Category extends Component {
             const { name, description, price, isHot, isRaw, optionPriceSetting, optionPriceAugmenting } = listOfItems[i];
             itemsList.push(
                 <Col sm={col}>
-                    <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} updateItemData={updateItemData} />
-=======
-                    <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} updateItemData={updateItemData} isAdmin={this.props.isAdmin} />
->>>>>>> Change the default text for a new entry
+                    <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} updateItemData={updateItemData} isAdmin={this.props.isAdmin}/>
                 </Col>
             );
         }

@@ -83,7 +83,7 @@ class Menu extends Component<State,Props> {
 
     createCategories(data) {
         var category = [];
-        for (var key in data) {
+        for (let key in data) {
           const updateCategoryData = (catData) => {
             var data = {...this.state.data};
             data[key] = catData;
@@ -92,7 +92,7 @@ class Menu extends Component<State,Props> {
           };
             category.push(
                 <div key={key}>
-                    <Category data={data[key]} updateCategoryData={this.updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
+                    <Category data={data[key]} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
                     <br />
                     <br />
                 </div>

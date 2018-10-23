@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import Fade from 'react-reveal/Fade';
-import { Row, Col, Container, Jumbotron, Button } from 'reactstrap';
+import { Row, Col, Container, Button } from 'reactstrap';
 import Firebase from './../fire';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
@@ -279,13 +279,24 @@ class Home extends Component {
                   </Fade>
                   <br />
                   <br />
-                  <h3 style={styles.headingText}><span className="heading">Gallery</span></h3>
+                  <h3 style={styles.headingText}><span className="heading">Preview of Gallery</span></h3>
                   <Gallery title={false} numRows={2} />
                   <br />
+                  <br />
+                  <Fade bottom>
+                    <Link to="/gallery" style={{textDecoration: "none", color: "#ffffff"}}>
+                      <Button>
+                        View Full Gallery
+                      </Button>
+                    </Link>
+                  </Fade>
                   <Container>
+                    <br />
                     <h3 style={styles.headingText}><span className="heading">Contact</span></h3>
                     <h4><strong>767 S State Rd 434 Suite 1040, Altamonte Springs, FL 32714</strong></h4>
+                    <br />
                   </Container>
+                  <br />
                   <MediaQuery query="(max-height: 768px)">
                     <div style={{ width: '100%', height: '300px' }}>
                       <MapBox />

@@ -9,13 +9,6 @@ class Map extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            viewport: {
-                width: 250,
-                height: 250,
-                latitude: 28.6464178,
-                longitude: -81.4146076,
-                zoom: 13
-            },
             lat: 28.6464178,
             lng: -81.4146076,
             zoom: 13
@@ -36,13 +29,15 @@ class Map extends Component {
 
 
         const popup = new mapboxgl.Popup()
-            .setHTML('<div style="color:#000000;"><h5>Kumo Asian Kitchen</h5><p>767 South SR 434<br />Altamonte Springs, Fl 32714</p><a href="' + link + '" target="_blank" >Directions</a></div>')
+            .setHTML('<div style="color:#000000;"><h5>Kumo Asian Kitchen</h5><p>767 South SR 434<br />Altamonte Springs, Fl 32714</p><a href="' + link + '" target="_blank" >Directions</a></div>');
 
         var marker = new mapboxgl.Marker()
             .setLngLat([lng, lat])
             .setPopup(popup)
             .addTo(map);
-
+            
+        marker.togglePopup();
+        
         map.on('move', () => {
           const { lng, lat } = map.getCenter();
 
@@ -52,6 +47,8 @@ class Map extends Component {
             zoom: map.getZoom().toFixed(2)
           });
         });
+        map.addControl(new mapboxgl.NavigationControl());
+        map.scrollZoom.disable();
 
 
     }

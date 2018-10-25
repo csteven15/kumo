@@ -96,7 +96,7 @@ class Menu extends Component<State,Props> {
           };
             category.push(
                 <div key={key}>
-                    <Category data={data[key]} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
+                    <Category data={data[key]} id={key} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
                     <br />
                     <br />
                 </div>
@@ -107,7 +107,7 @@ class Menu extends Component<State,Props> {
     }
 
     render() {
-      const saveButton = this.props.isAdmin ? <Button style={{margin: '5px'}} onClick={this.saveChanges}>Save changes</Button> : null;
+      const saveButton = this.props.isAdmin ? <Button style={{margin: '5px'}} color="success" onClick={this.saveChanges}>Save changes</Button> : null;
         console.log(this.state.data);
         if (this.state.data.length === 0) {
             return (
@@ -120,7 +120,7 @@ class Menu extends Component<State,Props> {
             );
         } else {
           let newCategoryButton = this.props.isAdmin ? (
-              <div><button onClick={this.addCategory}>Add category</button><br/><br/></div>
+              <Button onClick={this.addCategory} color="secondary">Add category</Button>
           ) : null;
             return (
                 <div>
@@ -129,8 +129,8 @@ class Menu extends Component<State,Props> {
                 <Container>
                     <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
-                    {newCategoryButton}
                 </Container>
+                {newCategoryButton}
                 {saveButton}
             </div>
             )

@@ -75,16 +75,18 @@ class Item extends Component {
 
     render() {
       const editButton = this.props.isAdmin ? (
-          <span><Button style={{fontSize: '10px', padding: '.1rem .3rem', marginRight:'5px'}} color="primary" size="sm" outline onClick={this.toggleEditDialog}>Edit</Button></span>
+          <Button style={{fontSize: '12px', padding: '.1rem .3rem', marginRight:'5px', marginTop: '0', marginBottom: '0'}} color="primary" size="sm" outline onClick={this.toggleEditDialog}>Edit</Button>
         ) : null;
       return (
           <Container style={{padding: "2px"}}>
               <Row>
                   <Col style={{textAlign: "left"}}>
-                  <div>
-                    {editButton}<h6 style={{display: 'inline'}}>
-                    <strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
-                  </div>
+                  <h6 style={{display: 'inline', margin: '0'}}>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                      {editButton}
+                      <strong>{this.props.name}</strong>{this.isHotRaw()}
+                    </div>
+                  </h6>
                   </Col>
                   <Col style={{textAlign: "right"}}>
                       <h6><strong>{this.priceSetting()}</strong></h6>

@@ -4,7 +4,7 @@ import { Container, Row, Col,ModalHeader,ModalBody,ModalFooter,Button,Input,Labe
 type Props = {
   id: string,
   data: Object,
-  updateItem: (data) => void,
+  updateCategory: (data) => void,
 }
 
 type State = {
@@ -17,7 +17,7 @@ function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-class ItemForm extends React.Component<State,Props> {
+class CategoryForm extends React.Component<State,Props> {
   state = {
     currentValue: this.props.defaultValue,
     isEditing: false,
@@ -25,8 +25,8 @@ class ItemForm extends React.Component<State,Props> {
   };
 
   handleSubmit = () => {
-    console.log("Saving item: ", this.state.data);
-    this.props.updateItem(this.state.data);
+    console.log("Saving category: ", this.state.data);
+    this.props.updateCategory(this.state.data);
     this.props.toggle();
   }
 
@@ -44,16 +44,6 @@ class ItemForm extends React.Component<State,Props> {
     if (!e.target.value) {
       delete data.description;
     }
-    this.setState({data});
-  }
-
-  updHot = (e) => {
-    const data = {...this.state.data, isHot: e.target.checked};
-    this.setState({data});
-  }
-
-  updRaw = (e) => {
-    const data = {...this.state.data, isRaw: e.target.checked};
     this.setState({data});
   }
 
@@ -137,12 +127,10 @@ class ItemForm extends React.Component<State,Props> {
 
     return (
       <div>
-        <ModalHeader>Edit Item #{this.props.id}: {this.props.data.name}</ModalHeader>
+        <ModalHeader>Edit Category #{this.props.id}: {this.props.data.name}</ModalHeader>
           <ModalBody>
             <FormGroup><Label for="name">Name</Label><Input value={this.state.data.name} onChange={this.updName} id="name" /></FormGroup>
             <FormGroup><Label for="description">Description</Label><Input value={this.state.data.description||''} onChange={this.updDescription} id="description" /></FormGroup>
-            <FormGroup check><Label check><Input type="checkbox" checked={this.state.data.isHot} onChange={this.updHot} id="isHot" />Is hot?</Label></FormGroup>
-            <FormGroup check><Label check><Input type="checkbox" checked={this.state.data.isRaw} onChange={this.updRaw} id="isRaw" />Is Raw?</Label></FormGroup>
             <FormGroup>
               <Label for="priceOptionCount">Number of price options</Label>
               <Input type="select" id="priceOptionCount" value={optionCount} onChange={this.updPriceCount}>
@@ -157,4 +145,4 @@ class ItemForm extends React.Component<State,Props> {
   }
 }
 
-export default ItemForm;
+export default CategoryForm;

@@ -1,10 +1,14 @@
 import React, { Component} from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col,Button,Modal } from 'reactstrap';
 import Item from './item';
-import EditableField from './EditableField'
+import EditableField from './EditableField';
+import CategoryForm from './CategoryForm';
 
 
 class Category extends Component {
+  state = {
+    isEditing: false,
+  };
 
     listItems() {
         let listOfItems = this.props.data.items;
@@ -103,20 +107,27 @@ class Category extends Component {
       this.props.updateCategoryData(null);
     }
 
+    toggleEditDialog = () => {
+      this.setState({isEditing: !this.state.isEditing});
+    }
+
     render() {
       let newItemButton = this.props.isAdmin ? (
-        <div><br/><button onClick={this.addItem}>Add item</button><button onClick={this.removeCategory}>Remove category</button><br/><br/></div>
+        <div><br/><Button color="secondary" size="sm" onClick={this.addItem}>Add item to {this.props.data.name}</Button><br/><br/></div>
       ) : null;
+      const editButton = this.props.isAdmin ? (
+          <Button style={{fontSize: '20px', marginRight:'10px', marginTop: '0', marginBottom: '0'}} outline color="primary" size="sm" onClick={this.toggleEditDialog}>Edit</Button>
+        ) : null;
       return (
         <div>
           <Container>
               <Row>
                   <Col style={{textAlign: "left"}}>
-                    <h2 style={{color: "#C42C18"}}><EditableField defaultValue={this.props.data.name} canEdit={this.props.isAdmin} id="name" noDelete onUpdateValue={this.updateField}><strong>{this.props.data.name}</strong></EditableField></h2>
+                    <h2 style={{color: "#C42C18"}}><div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>{editButton}<strong>{this.props.data.name}</strong></div></h2>
                   </Col>
               </Row>
               {this.optionPriceSetting()}
-              <EditableField defaultValue={this.props.data.description} canEdit={this.props.isAdmin} id="description" onUpdateValue={this.updateField}>{this.description()}</EditableField>
+              {this.description()}
           </Container>
           <hr />
           <Container>
@@ -126,7 +137,10 @@ class Category extends Component {
           </Container>
           {newItemButton}
           {this.footnote()}
-          </div>
+          <Modal isOpen={this.state.isEditing} toggle={this.toggleEditDialog}>
+            <CategoryForm id={this.props.id} data={this.props.data} toggle={this.toggleEditDialog} updateCategory={this.props.updateCategoryData} />
+          </Modal>
+        </div>
       );
     }
 

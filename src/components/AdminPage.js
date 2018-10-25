@@ -2,6 +2,7 @@ import AdminControls from './AdminControls';
 import fire from '../fire';
 import Login from './login';
 import React from 'react';
+import { Fade } from 'reactstrap';
 
 type State = {
   user: ?Object,
@@ -15,7 +16,13 @@ class AdminPage extends React.Component<State> {
   }
   render() {
     if (!this.state.hasLoaded) {
-      return <div>Loading...</div>;
+      return (
+        <div><br/>
+          <Fade big>
+              <h3 style={{fontFamily: "cursive",fontSize: "16pt",margin: "50px"}}>Loading Admin Panel...</h3>
+          </Fade>
+        </div>
+      );
     }
     if (this.state.user == null) {
       return <Login />;

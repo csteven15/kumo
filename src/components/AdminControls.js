@@ -13,10 +13,12 @@ class AdminControls extends React.Component<{},Props> {
         <div style={{ backgroundColor: '#fcfcfc' }}>
           <Col>
           <br/>
-            <Button style={{margin: '5px'}} onClick={this.handleSignOut}>Logout</Button>
-            <div>Logged in as: {this.props.user.email}</div><br/>
-            To use the admin panel, simply click one of the buttons, or click on any text to edit it.<br/>
-            When editting text, hit enter to finish editting, or click the X to remove this item.
+            <span>{this.props.user.email}</span> <Button style={{margin: '5px'}} onClick={this.handleSignOut}>Logout</Button>
+            <br/>
+            <h1>Admin Panel</h1>
+            To use the admin panel, simply click "Edit" or "Add" buttons.<br/>
+            Any changes you make are only local, until you click the "Save" button to publish changes.
+
             <Menu isAdmin={true}/>
           </Col>
         </div>

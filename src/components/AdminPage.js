@@ -25,7 +25,7 @@ class AdminPage extends React.Component<State> {
       );
     }
     if (this.state.user == null) {
-      return <Login />;
+      return <div><br /><Login /></div>;
     }
     return <AdminControls user={this.state.user} />;
   }

@@ -1,31 +1,37 @@
 import React, { Component} from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button, Modal} from 'reactstrap';
+import EditableField from './EditableField'
+import ItemForm from './ItemForm'
+
 
 class Item extends Component {
+  state = {
+    isEditing: false,
+  };
 
     isHotRaw() {
         if (this.props.isHot === true && this.props.isRaw === true) {
             return (
-                <div style={{float:"right"}}>
+                <span>
                     &nbsp;&nbsp;
                     <img src={require('../images/fire.svg')} width="10" />
                     &nbsp;&nbsp;
                     <img src={require('../images/raw.png')} width="15" />
-                </div>
+                </span>
             );
         } else if (this.props.isHot === true) {
             return (
-                <div style={{float:"right"}}>
+                <span>
                     &nbsp;&nbsp;
                     <img src={require('../images/fire.svg')} width="10" />
-                </div>
+                </span>
             );
         } else if (this.props.isRaw === true) {
             return (
-                <div style={{float:"right"}}>
+                <span>
                     &nbsp;&nbsp;
                     <img src={require('../images/raw.png')} width="15" />
-                </div>
+                </span>
             );
         }
     }
@@ -63,30 +69,42 @@ class Item extends Component {
         }
     }
 
-    render() {
-
-        return (
-            <Container style={{padding: "2px"}}>
-                <Row>
-                    <Col style={{textAlign: "left"}}>
-                    <div>
-                        <h6 style={{float: "left"}}><strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
-                    </div>
-                    </Col>
-                    <Col style={{textAlign: "right"}}>
-                        <h6><strong>{this.priceSetting()}</strong></h6>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col style={{fontSize: "11px", textAlign: "left"}}>
-                        {this.description()}                        
-                    </Col>
-                </Row>
-            </Container>
-        );
+    toggleEditDialog = () => {
+      this.setState({isEditing: !this.state.isEditing});
     }
 
-    
+    render() {
+      const editButton = this.props.isAdmin ? (
+          <Button style={{fontSize: '12px', padding: '.1rem .3rem', marginRight:'5px', marginTop: '0', marginBottom: '0'}} color="primary" size="sm" outline onClick={this.toggleEditDialog}>Edit</Button>
+        ) : null;
+      return (
+          <Container style={{padding: "2px"}}>
+              <Row>
+                  <Col style={{textAlign: "left"}}>
+                  <h6 style={{display: 'inline', margin: '0'}}>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                      {editButton}
+                      <strong>{this.props.name}</strong>{this.isHotRaw()}
+                    </div>
+                  </h6>
+                  </Col>
+                  <Col style={{textAlign: "right"}}>
+                      <h6><strong>{this.priceSetting()}</strong></h6>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col style={{fontSize: "11px", textAlign: "left"}}>
+                      {this.description()}
+                  </Col>
+              </Row>
+              <Modal isOpen={this.state.isEditing} toggle={this.toggleEditDialog}>
+                <ItemForm id={this.props.id} data={this.props.data} toggle={this.toggleEditDialog} updateItem={this.props.updateItemData} />
+              </Modal>
+          </Container>
+      );
+    }
+
+
 };
 
 

@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Container, Jumbotron } from 'reactstrap';
+import { Button, Container, Jumbotron } from 'reactstrap';
 import Firebase from './../fire';
 import Category from './category';
 import Fade from 'react-reveal/Fade';
@@ -8,11 +8,17 @@ type Props = {
   isAdmin?: boolean,
 }
 
-class Menu extends Component<{},Props> {
+type State = {
+  data: Object,
+  dirty: boolean,
+}
+
+class Menu extends Component<State,Props> {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            dirty: false,
         }
     }
 
@@ -25,6 +31,15 @@ class Menu extends Component<{},Props> {
       } else {
         menuRef.on('value', this.updateToSnapshot);
       }
+
+      window.addEventListener("beforeunload", e => {
+        if (this.state.dirty) {
+            const message = "You have unsaved changes to the menu. Are you sure you want to leave the page?";
+            e.preventDefault();
+            e.returnValue = message;
+            return message;
+        }
+      });
     }
 
 
@@ -38,17 +53,18 @@ class Menu extends Component<{},Props> {
       console.log(data);
     }
 
-    saveChanges() {
+    saveChanges = () => {
       let database = Firebase.database();
       let menuRef = database.ref('menu');
 
       console.log("Setting menu to", this.state.data);
       menuRef.set(this.state.data);
+      this.setState({dirty: false});
     }
 
     addCategory = () => {
       var data = {...this.state.data};
-      let maxId = 0;
+      let maxId = -1;
       for (let key in data) {
         let id = parseInt(key);
         if (!isNaN(id)) {
@@ -57,25 +73,39 @@ class Menu extends Component<{},Props> {
       }
       maxId++;
       data["" + maxId] = {name: "Name Here", description: "Description Here", items: []};
-      this.setState({data}, this.saveChanges);
+      this.setState({data});
+      this.onAdminChange();
+    }
+
+    onAdminChange() {
+      this.setState({dirty: true});
     }
 
     createCategories(data) {
         var category = [];
-        for (var key in data) {
+        for (let key in data) {
+          const updateCategoryData = (catData) => {
+            var data = {...this.state.data};
+            if (!catData) {
+              delete data[key];
+              let ptr = 0;
+              for (let i in data) {
+                let x = data[i];
+                delete data[i];
+                data[ptr] = x;
+                ptr++;
+              }
+            } else {
+              data[key] = catData;
+            }
+            this.setState({data});
+            this.onAdminChange();
+          };
             category.push(
                 <div key={key}>
-                    <Category data={data[key]} updateData={this.updateData} col={"6"} />
+                    <Category data={data[key]} id={key} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
                     <br />
                     <br />
-                </div>
-            );
-        }
-
-        if (this.props.isAdmin) {
-            category.push(
-                <div key='_newItem' onClick={this.addCategory}>
-                    <Category data={null} />
                 </div>
             );
         }
@@ -84,6 +114,7 @@ class Menu extends Component<{},Props> {
     }
 
     render() {
+      const saveButton = this.props.isAdmin ? <Button style={{margin: '5px'}} color="success" onClick={this.saveChanges}>Save changes</Button> : null;
         console.log(this.state.data);
         if (this.state.data.length === 0) {
             return (
@@ -95,6 +126,9 @@ class Menu extends Component<{},Props> {
             </div>
             );
         } else {
+          let newCategoryButton = this.props.isAdmin ? (
+              <Button onClick={this.addCategory} color="secondary">Add category</Button>
+          ) : null;
             return (
                 <div>
                 <br />
@@ -103,6 +137,8 @@ class Menu extends Component<{},Props> {
                     <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
                 </Container>
+                {newCategoryButton}
+                {saveButton}
             </div>
             )
         }

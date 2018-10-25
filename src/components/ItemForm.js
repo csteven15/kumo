@@ -30,6 +30,11 @@ class ItemForm extends React.Component<State,Props> {
     this.props.toggle();
   }
 
+  handleRemove = () => {
+    this.props.updateItem(null);
+    this.props.toggle();
+  }
+
   handleCancel = () => {
     this.props.toggle();
   }
@@ -151,7 +156,11 @@ class ItemForm extends React.Component<State,Props> {
             </FormGroup>
             {priceFields}
           </ModalBody>
-        <ModalFooter><Button color="primary" size="sm" onClick={this.handleSubmit}>Update</Button>{' '}<Button color="secondary" size="sm" onClick={this.handleCancel}>Cancel</Button></ModalFooter>
+        <ModalFooter>
+          <Button color="primary" size="sm" onClick={this.handleSubmit}>Update</Button>{' '}
+          <Button color="danger" size="sm" onClick={this.handleRemove}>Remove</Button>{' '}
+          <Button color="secondary" size="sm" onClick={this.handleCancel}>Cancel</Button>
+        </ModalFooter>
       </div>
     );
   }

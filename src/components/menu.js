@@ -88,6 +88,13 @@ class Menu extends Component<State,Props> {
             var data = {...this.state.data};
             if (!catData) {
               delete data[key];
+              let ptr = 0;
+              for (let i in data) {
+                let x = data[i];
+                delete data[i];
+                data[ptr] = x;
+                ptr++;
+              }
             } else {
               data[key] = catData;
             }

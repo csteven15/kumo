@@ -17,7 +17,17 @@ class Category extends Component {
         for (let i in listOfItems) {
             const updateItemData = (itemData) => {
               var data = {...this.props.data};
-              data["items"][i] = itemData;
+              data.items[i] = itemData;
+              if (!itemData) {
+                delete data.items[i];
+                let ptr = 0;
+                for (let j in data.items) {
+                  let x = data.items[j];
+                  delete data.items[j];
+                  data.items[ptr] = x;
+                  ptr++;
+                }
+              }
               this.props.updateCategoryData(data);
             };
             const data = listOfItems[i];
@@ -45,6 +55,9 @@ class Category extends Component {
         }
       }
       maxId++;
+      if (!data.items) {
+        data.items = {};
+      }
       data["items"][maxId] = {name: "Default name", description: "Default description", isHot: false, isRaw: false};
       this.props.updateCategoryData(data);
     }

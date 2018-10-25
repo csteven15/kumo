@@ -135,8 +135,8 @@ class Category extends Component {
                   {this.listItems()}
               </Row>
           </Container>
-          {newItemButton}
           {this.footnote()}
+          {newItemButton}
           <Modal isOpen={this.state.isEditing} toggle={this.toggleEditDialog}>
             <CategoryForm id={this.props.id} data={this.props.data} toggle={this.toggleEditDialog} updateCategory={this.props.updateCategoryData} />
           </Modal>

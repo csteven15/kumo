@@ -47,6 +47,14 @@ class CategoryForm extends React.Component<State,Props> {
     this.setState({data});
   }
 
+  updFootnote = (e) => {
+    const data = {...this.state.data, footnote: !e.target.value ? null : e.target.value};
+    if (!e.target.value) {
+      delete data.footnote;
+    }
+    this.setState({data});
+  }
+
   updPrice = (e) => {
     const data = {...this.state.data};
     data.optionPriceSetting.options[0].price = e.target.value;
@@ -131,6 +139,7 @@ class CategoryForm extends React.Component<State,Props> {
           <ModalBody>
             <FormGroup><Label for="name">Name</Label><Input value={this.state.data.name} onChange={this.updName} id="name" /></FormGroup>
             <FormGroup><Label for="description">Description</Label><Input value={this.state.data.description||''} onChange={this.updDescription} id="description" /></FormGroup>
+            <FormGroup><Label for="footer">Additional Protein Footer</Label><Input value={this.state.data.footnote||''} onChange={this.updFootnote} id="footer" /></FormGroup>
             <FormGroup>
               <Label for="priceOptionCount">Number of price options</Label>
               <Input type="select" id="priceOptionCount" value={optionCount} onChange={this.updPriceCount}>

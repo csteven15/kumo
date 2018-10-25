@@ -11,16 +11,16 @@ class Category extends Component {
         let col = this.props.col;
         let itemsList = [];
         for (let i in listOfItems) {
-            const iCopy = i;
-            const updateItemData = (key, value) => {
+            const updateItemData = (itemData) => {
               var data = {...this.props.data};
-              data["items"][iCopy][key] = value;
+              data["items"][i] = itemData;
               this.props.updateCategoryData(data);
             };
-            const { name, description, price, isHot, isRaw, optionPriceSetting, optionPriceAugmenting } = listOfItems[i];
+            const data = listOfItems[i];
+            const { name, description, price, isHot, isRaw, optionPriceSetting } = data;
             itemsList.push(
                 <Col sm={col}>
-                    <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} optionPriceAugmenting={optionPriceAugmenting} updateItemData={updateItemData} isAdmin={this.props.isAdmin}/>
+                    <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} updateItemData={updateItemData} isAdmin={this.props.isAdmin} data={data} id={i}/>
                 </Col>
             );
         }

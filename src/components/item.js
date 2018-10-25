@@ -1,32 +1,37 @@
 import React, { Component} from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button, Modal} from 'reactstrap';
 import EditableField from './EditableField'
+import ItemForm from './ItemForm'
+
 
 class Item extends Component {
+  state = {
+    isEditing: false,
+  };
 
     isHotRaw() {
         if (this.props.isHot === true && this.props.isRaw === true) {
             return (
-                <div style={{float:"right"}}>
+                <span>
                     &nbsp;&nbsp;
                     <img src={require('../images/fire.svg')} width="10" />
                     &nbsp;&nbsp;
                     <img src={require('../images/raw.png')} width="15" />
-                </div>
+                </span>
             );
         } else if (this.props.isHot === true) {
             return (
-                <div style={{float:"right"}}>
+                <span>
                     &nbsp;&nbsp;
                     <img src={require('../images/fire.svg')} width="10" />
-                </div>
+                </span>
             );
         } else if (this.props.isRaw === true) {
             return (
-                <div style={{float:"right"}}>
+                <span>
                     &nbsp;&nbsp;
                     <img src={require('../images/raw.png')} width="15" />
-                </div>
+                </span>
             );
         }
     }
@@ -64,26 +69,37 @@ class Item extends Component {
         }
     }
 
+    toggleEditDialog = () => {
+      this.setState({isEditing: !this.state.isEditing});
+    }
+
     render() {
-        return (
-            <Container style={{padding: "2px"}}>
-                <Row>
-                    <Col style={{textAlign: "left"}}>
-                    <div>
-                        <h6 style={{float: "left"}}><EditableField defaultValue={this.props.name} canEdit={this.props.isAdmin} noDelete={true} id="name" onUpdateValue={this.props.updateItemData}><strong>{this.props.name}</strong></EditableField>{this.isHotRaw()}</h6>
-                    </div>
-                    </Col>
-                    <Col style={{textAlign: "right"}}>
-                        <h6><strong>{this.priceSetting()}</strong></h6>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col style={{fontSize: "11px", textAlign: "left"}}>
-                        <EditableField defaultValue={this.props.description} canEdit={this.props.isAdmin} id="description" onUpdateValue={this.props.updateItemData}>{this.description()}</EditableField>
-                    </Col>
-                </Row>
-            </Container>
-        );
+      const editButton = this.props.isAdmin ? (
+          <span><Button style={{fontSize: '10px', padding: '.1rem .3rem', marginRight:'5px'}} color="primary" size="sm" outline onClick={this.toggleEditDialog}>Edit</Button></span>
+        ) : null;
+      return (
+          <Container style={{padding: "2px"}}>
+              <Row>
+                  <Col style={{textAlign: "left"}}>
+                  <div>
+                    {editButton}<h6 style={{display: 'inline'}}>
+                    <strong>{this.props.name}</strong>{this.isHotRaw()}</h6>
+                  </div>
+                  </Col>
+                  <Col style={{textAlign: "right"}}>
+                      <h6><strong>{this.priceSetting()}</strong></h6>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col style={{fontSize: "11px", textAlign: "left"}}>
+                      {this.description()}
+                  </Col>
+              </Row>
+              <Modal isOpen={this.state.isEditing} toggle={this.toggleEditDialog}>
+                <ItemForm id={this.props.id} data={this.props.data} toggle={this.toggleEditDialog} updateItem={this.props.updateItemData} />
+              </Modal>
+          </Container>
+      );
     }
 
 

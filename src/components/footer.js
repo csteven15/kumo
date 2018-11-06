@@ -4,12 +4,32 @@ import { Container, Row, Col, Table } from 'reactstrap';
 
 const Footer = () => {
     return (
-        <div style={styles.containerStyle}>
-          <br />
-          <br />
-          <br />
-          
-            <Container>
+            <Container style={styles.containerStyle}>
+              <br />
+              <br />
+              <br />
+              <Container style={{width: "90%"}}>
+                <Row>
+                  <Col xs="3" style={{textAlign: "left"}}>
+                    <h5 style={styles.footerStyle}>Kumo</h5>
+                    <p>Kumo is a modern take on delicious Asian cuisine. We are here to satisfy your appetite in a fast casual environment!</p>
+                  </Col>
+                  <Col xs="3" style={{textAlign: "left"}}>
+                    <h5 style={styles.footerStyle}>Location</h5>
+                    <p>767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</p>
+                  </Col>
+                  <Col xs="3" style={{textAlign: "left"}}>
+                    <h5 style={styles.footerStyle}>Contact</h5>
+                    <p>(407) 270-6587</p>
+                  </Col>
+                  <Col xs="3" style={{textAlign: "left"}}>
+                    <h5 style={styles.footerStyle}>Stay Connected</h5>
+                    <img src={require('../images/facebook.svg')} width="30" />
+                    <img src={require('../images/instagram.svg')} width="30" />
+                    <img src={require('../images/yelp.svg')} width="30" />
+                  </Col>
+                </Row>
+              </Container>
                 <Row>
                     <Col style={{color: '#000000'}}>© 2018 Team Blue</Col>
                 </Row>
@@ -19,7 +39,6 @@ const Footer = () => {
                     </Col>
                 </Row>
             </Container>
-        </div>
     )
 };
 
@@ -27,7 +46,12 @@ const styles = {
     containerStyle: {
         fontSize: '12px',
         backgroundColor: '#ffffff',
-        color: '#000000'
+        color: '#000000',
+        justifyContent: 'center'
+    },
+    footerStyle: {
+      fontWeight: 600,
+      color: '#C42C18'
     }
 };
 

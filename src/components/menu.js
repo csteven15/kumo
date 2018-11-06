@@ -62,6 +62,15 @@ class Menu extends Component<State,Props> {
       this.setState({dirty: false});
     }
 
+    discardChanges = () => {
+      let database = Firebase.database();
+      let menuRef = database.ref('menu');
+
+      menuRef.once('value', this.updateToSnapshot);
+
+      this.setState({dirty: false});
+    }
+
     addCategory = () => {
       let data = {...this.state.data};
       let maxId = -1;
@@ -134,7 +143,12 @@ class Menu extends Component<State,Props> {
     }
 
     render() {
-      const saveButton = this.props.isAdmin ? <Button style={{margin: '5px'}} color="success" onClick={this.saveChanges}>Save changes</Button> : null;
+      const saveButton = this.props.isAdmin ? (
+        <span>
+          <Button style={{margin: '5px'}} color="success" onClick={this.saveChanges}>Save changes</Button>
+          <Button style={{margin: '5px'}} color="danger" onClick={this.discardChanges}>Discard changes</Button>
+        </span>
+      ) : null;
         console.log(this.state.data);
         if (this.state.data.length === 0) {
             return (
@@ -147,7 +161,7 @@ class Menu extends Component<State,Props> {
             );
         } else {
           let newCategoryButton = this.props.isAdmin ? (
-              <Button onClick={this.addCategory} color="secondary">Add category</Button>
+              <Button onClick={this.addCategory} color="secondary" style={{margin: '5px'}}>Add category</Button>
           ) : null;
             return (
                 <div>
@@ -157,8 +171,8 @@ class Menu extends Component<State,Props> {
                     <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
                 </Container>
-                {newCategoryButton}
                 {saveButton}
+                {newCategoryButton}
             </div>
             )
         }

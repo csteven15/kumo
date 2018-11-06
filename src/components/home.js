@@ -75,14 +75,14 @@ class Home extends Component {
                 description: '',
                 button: 'Buy now',
                 image: require('../images/chopsticksCarousel.jpg'),
-                subDescription: 'Check out our menu for details'
+                subDescription: 'Check out our menu for details!'
             },
 			{
                 title: 'Place an order today!',
                 description: '',
                 button: 'Discover',
                 image: require('../images/salmonCarousel.jpg'),
-                subDescription: '(407)270-6587'
+                subDescription: '(407) 270-6587'
             },
         ];
         if (this.state.sushiBurrito.length === 0 || this.state.appetizer.length === 0) {
@@ -140,7 +140,7 @@ class Home extends Component {
                                   <Fade right>
                                     <h4 style={styles.headingText}><span className="heading">Authentic Asian Food Done Right!</span></h4>
                                     <br />
-                                    <p>Looking for a quick bite to eat but don't want to compromise on taste and quality. Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. A great place for sushi, hibachi, and bento. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Orlando area.</p>
+                                    <p>Looking for a quick bite to eat but don't want to compromise on taste and quality? Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. It's great place for sushi, hibachi, bento, etc. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Altamonte area.</p>
                                   </Fade>
                                 </td>
                               </tr>
@@ -161,7 +161,7 @@ class Home extends Component {
                                   <Fade left>
                                     <h4 style={styles.headingText}><span className="heading">Fresh and Local Ingredients</span></h4>
                                     <br />
-                                    <p> Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with, at Kumo Asian Kitchen we cook in plain site right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>
+                                    <p>Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with. At Kumo Asian Kitchen we cook in plain sight right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>
                                   </Fade>
                                 </td>
                                 <td valign="top" width="33%">
@@ -180,12 +180,6 @@ class Home extends Component {
                   {/* This is for small devices which are too small to accomodate the image and text side-by-side. */}
                   <MediaQuery query="(max-width: 768px)">
 
-
-
-
-
-
-
                     <Container>
                       <Row>
                         <Col sm="12">
@@ -198,7 +192,7 @@ class Home extends Component {
                           <Fade right>
                             <h4 style={styles.headingText}><span className="heading">Authentic Asian Food Done Right!</span></h4>
                             <br />
-                            <p>Looking for a quick bite to eat but don't want to compromise on taste and quality. Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. A great place for sushi, hibachi, and bento. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Orlando area.</p>
+                            <p>Looking for a quick bite to eat but don't want to compromise on taste and quality? Look no further than Kumo Asian Kitchen located directly across from Seminole State College Altamonte Springs Campus. A great place for sushi, hibachi, bento, etc. The reviews are in and Kumo Asian Kitchen is one of the top Asian Food restaurants in the Altamonte area.</p>
                           </Fade>
                         </Col>
                       </Row>
@@ -218,7 +212,7 @@ class Home extends Component {
                           <Fade right>
                             <h4 style={styles.headingText}><span className="heading">Fresh and Local Ingredients</span></h4>
                             <br />
-                            <p> Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with, at Kumo Asian Kitchen we cook in plain site right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>
+                            <p> Our ingredients are delivered straight from farms located all throughout Florida. We are not scared to hide what we cook with. At Kumo Asian Kitchen we cook in plain sight right behind the counter so you can always be sure we are using ingredients that are up to par. We believe that farm fresh ingredients enhance our food and make us the best Asian Kitchen in Florida. Come in today and experience all that your new favorite Asian restaurant has to offer.</p>
                           </Fade>
                         </Col>
                       </Row>

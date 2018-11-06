@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Table } from 'reactstrap';
-
+import './footer.css';
 
 const Footer = () => {
     return (
+      <div style={{backgroundColor: '#f8f9fa'}}>
             <Container style={styles.containerStyle}>
               <br />
               <br />
@@ -16,17 +17,17 @@ const Footer = () => {
                   </Col>
                   <Col xs="3" style={{textAlign: "left"}}>
                     <h5 style={styles.footerStyle}>Location</h5>
-                    <p>767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</p>
+                    <a href="https://www.google.com/maps/place/Kumo+Asian+Kitchen/@28.6464178,-81.4167963,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77191beca7b59:0x1f6936ccd7178272!8m2!3d28.6464178!4d-81.4146076" className="footerLink" target="_blank">767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</a>
                   </Col>
                   <Col xs="3" style={{textAlign: "left"}}>
                     <h5 style={styles.footerStyle}>Contact</h5>
-                    <p>(407) 270-6587</p>
+                    <a href="tel:(407) 207-6587" className="footerLink">(407) 270-6587</a>
                   </Col>
                   <Col xs="3" style={{textAlign: "left"}}>
                     <h5 style={styles.footerStyle}>Stay Connected</h5>
-                    <img src={require('../images/facebook.svg')} width="30" />
-                    <img src={require('../images/instagram.svg')} width="30" />
-                    <img src={require('../images/yelp.svg')} width="30" />
+                    <a href="https://www.facebook.com/Kumo-Asian-Kitchen-422796388126391/" target="_blank"><img src={require('../images/facebook.svg')} width="30" /></a>
+                    <a href="https://www.instagram.com/kumosushi2018/" target="_blank"><img src={require('../images/instagram.svg')} width="30" /></a>
+                    <a href="https://www.yelp.com/biz/kumo-asian-kitchen-altamonte-springs" target="_blank"><img src={require('../images/yelp.svg')} width="30" /></a>
                   </Col>
                 </Row>
               </Container>
@@ -39,13 +40,13 @@ const Footer = () => {
                     </Col>
                 </Row>
             </Container>
+          </div>
     )
 };
 
 const styles = {
     containerStyle: {
         fontSize: '12px',
-        backgroundColor: '#ffffff',
         color: '#000000',
         justifyContent: 'center'
     },

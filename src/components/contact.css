@@ -8,3 +8,13 @@
   height: 100%;
   min-height: 250px;
 }
+
+.footerLink {
+  text-decoration: none;
+  color: #000000;
+}
+
+.footerLink:hover {
+  text-decoration: none;
+  color: #C42C18;
+}

@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Button, Container, Jumbotron } from 'reactstrap';
+import { Button, Container, Jumbotron,Modal,ModalHeader,ModalBody,ModalFooter } from 'reactstrap';
 import Firebase from './../fire';
 import Category from './category';
 import Fade from 'react-reveal/Fade';
@@ -19,6 +19,8 @@ class Menu extends Component<State,Props> {
         this.state = {
             data: [],
             dirty: false,
+            showDiscardDialog: false,
+            showSaveDialog: false,
         }
     }
 
@@ -53,7 +55,16 @@ class Menu extends Component<State,Props> {
       console.log(data);
     }
 
+    toggleSaveDialog = () => {
+      this.setState({showSaveDialog: !this.state.showSaveDialog})
+    }
+
+    toggleDiscardDialog = () => {
+      this.setState({showDiscardDialog: !this.state.showDiscardDialog})
+    }
+
     saveChanges = () => {
+      this.toggleSaveDialog();
       let database = Firebase.database();
       let menuRef = database.ref('menu');
 
@@ -63,6 +74,7 @@ class Menu extends Component<State,Props> {
     }
 
     discardChanges = () => {
+      this.toggleDiscardDialog();
       let database = Firebase.database();
       let menuRef = database.ref('menu');
 
@@ -145,10 +157,35 @@ class Menu extends Component<State,Props> {
     render() {
       const saveButton = this.props.isAdmin ? (
         <span>
-          <Button style={{margin: '5px'}} color="success" onClick={this.saveChanges}>Save changes</Button>
-          <Button style={{margin: '5px'}} color="danger" onClick={this.discardChanges}>Discard changes</Button>
+          <Button style={{margin: '5px'}} color="success" onClick={this.toggleSaveDialog}>Save changes</Button>
+          <Button style={{margin: '5px'}} color="warning" onClick={this.toggleDiscardDialog}>Discard changes</Button>
         </span>
       ) : null;
+      let dialogs = (
+        <span>
+          <Modal isOpen={this.state.showSaveDialog} toggle={this.toggleSaveDialog}>
+            <ModalHeader>Save Changes</ModalHeader>
+              <ModalBody>
+                Are you sure you want to commit your changes to the menu?
+              </ModalBody>
+            <ModalFooter>
+              <Button color="success" size="sm" onClick={this.saveChanges}>Save</Button>{' '}
+              <Button color="secondary" size="sm" onClick={this.toggleSaveDialog}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+          <Modal isOpen={this.state.showDiscardDialog} toggle={this.toggleDiscardDialog}>
+            <ModalHeader>Discard Changes</ModalHeader>
+              <ModalBody>
+                Are you sure you want to discard your changes to the menu?
+              </ModalBody>
+            <ModalFooter>
+              <Button color="warning" size="sm" onClick={this.discardChanges}>Discard</Button>{' '}
+              <Button color="secondary" size="sm" onClick={this.toggleDiscardDialog}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+
+        </span>
+      )
         console.log(this.state.data);
         if (this.state.data.length === 0) {
             return (
@@ -172,6 +209,7 @@ class Menu extends Component<State,Props> {
                     {this.createCategories(this.state.data)}
                 </Container>
                 {saveButton}
+                {dialogs}
                 {newCategoryButton}
             </div>
             )

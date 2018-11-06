@@ -16,7 +16,7 @@ class Item extends Component {
                     &nbsp;&nbsp;
                     <img src={require('../images/fire.svg')} width="10" />
                     &nbsp;&nbsp;
-                    <img src={require('../images/raw.svg')} width="15" />
+                    <img src={require('../images/raw.png')} width="15" />
                 </span>
             );
         } else if (this.props.isHot === true) {
@@ -30,7 +30,7 @@ class Item extends Component {
             return (
                 <span>
                     &nbsp;&nbsp;
-                    <img src={require('../images/raw.svg')} width="15" />
+                    <img src={require('../images/raw.png')} width="15" />
                 </span>
             );
         }

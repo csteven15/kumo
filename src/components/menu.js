@@ -63,7 +63,7 @@ class Menu extends Component<State,Props> {
     }
 
     addCategory = () => {
-      var data = {...this.state.data};
+      let data = {...this.state.data};
       let maxId = -1;
       for (let key in data) {
         let id = parseInt(key);
@@ -81,7 +81,27 @@ class Menu extends Component<State,Props> {
       this.setState({dirty: true});
     }
 
+    moveCategory = (oid, nid) => {
+      let data = {...this.state.data};
+      let arr = []
+      for (let key in data) {
+        arr.push(data[key])
+      }
+      let cat = data[oid]
+      arr.splice(oid, 1);
+      arr.splice(nid, 0, cat);
+      data = {};
+      for (let key in arr) {
+        data[key+""] = arr[key]
+      }
+      this.setState({data});
+      this.onAdminChange();
+    }
+
     createCategories(data) {
+        let lastId = '';
+        for (let key in this.state.data)
+          lastId = key;
         var category = [];
         for (let key in data) {
           const updateCategoryData = (catData) => {
@@ -101,13 +121,13 @@ class Menu extends Component<State,Props> {
             this.setState({data});
             this.onAdminChange();
           };
-            category.push(
-                <div key={key}>
-                    <Category data={data[key]} id={key} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
-                    <br />
-                    <br />
-                </div>
-            );
+          category.push(
+              <div key={key}>
+                  <Category data={data[key]} id={key} moveCat={this.moveCategory} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} isLast={key === lastId} isFirst={key === '0'}/>
+                  <br />
+                  <br />
+              </div>
+          );
         }
 
         return category;

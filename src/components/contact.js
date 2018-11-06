@@ -39,17 +39,14 @@ class Contact extends Component {
                     <Container>
                       <Row>
                         <Col sm="5" style={{textAlign: "left"}}>
-                          <h3><strong>Contact Kumo Asian Kitchen</strong></h3>
-                          <h4>Address</h4>
-                          <h5>Kumo Asian Kitchen</h5>
-                          <h6>767 South SR 434<br />Altamonte Springs, Fl 32714</h6>
-                          <h6>Tel: (407) 270-6587</h6>
+                          <h1 style={{color: "#C42C18"}}><strong>Contact Kumo Asian Kitchen</strong></h1>
+                          <h4>Location</h4>
+                          <h6>Kumo Asian Kitchen<br />767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</h6>
+                          <br />
+                          <h4>Phone</h4>
+                          <h6>(407) 270-6587</h6>
                           <br />
                           <h4>Opening Hours</h4>
-                          <Row>
-                            <Col>
-                            </Col>
-                          </Row>
                           <Row>
                             <Col xs="6">
                               <h5>Monday - Saturday</h5>
@@ -78,13 +75,11 @@ class Contact extends Component {
                           <h4>Address</h4>
                           <h5>Kumo Asian Kitchen</h5>
                           <h6>767 South SR 434<br />Altamonte Springs, Fl 32714</h6>
-                          <h6>Tel: (407) 270-6587</h6>
+                          <br />
+                          <h4>Phone</h4>
+                          <h6>(407) 270-6587</h6>
                           <br />
                           <h4>Opening Hours</h4>
-                          <Row>
-                            <Col>
-                            </Col>
-                          </Row>
                           <Row>
                             <Col xs="6">
                               <h5>Monday - Saturday</h5>

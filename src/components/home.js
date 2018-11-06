@@ -279,7 +279,7 @@ class Home extends Component {
                   </Fade>
                   <br />
                   <br />
-                  <h3 style={styles.headingText}><span className="heading">Preview of Gallery</span></h3>
+                  <h2 style={styles.headingText}><span className="heading">Preview of Gallery</span></h2>
                   <Gallery title={false} numRows={2} />
                   <br />
                   <br />
@@ -292,7 +292,7 @@ class Home extends Component {
                   </Fade>
                   <Container>
                     <br />
-                    <h3 style={styles.headingText}><span className="heading">Contact</span></h3>
+                    <h2 style={styles.headingText}><span className="heading">Location</span></h2>
                     <h4><strong>767 S State Rd 434 Suite 1040, Altamonte Springs, FL 32714</strong></h4>
                     <br />
                   </Container>

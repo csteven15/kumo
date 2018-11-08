@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Table } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import Map from './mapbox';
 import Fade from 'react-reveal/Fade';
 import './contact.css';
@@ -39,9 +39,9 @@ class Contact extends Component {
                     <Container>
                       <Row>
                         <Col sm="5" style={{textAlign: "left"}}>
-                          <h1 style={{color: "#C42C18"}}><strong>Contact Kumo Asian Kitchen</strong></h1>
+                          <h1 style={{color: '#C42C18',fontWeight: 'bold',fontFamily: 'gangOf3'}}><span className="heading">Contact Us</span></h1>
                           <h4 style={styles.subHeading}>Location</h4>
-                          <a href="https://www.google.com/maps/place/Kumo+Asian+Kitchen/@28.6464178,-81.4167963,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77191beca7b59:0x1f6936ccd7178272!8m2!3d28.6464178!4d-81.4146076" className="footerLink" target="_blank"><h6>Kumo Asian Kitchen<br />767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</h6></a>
+                          <a rel="noopener noreferrer" href="https://www.google.com/maps/place/Kumo+Asian+Kitchen/@28.6464178,-81.4167963,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77191beca7b59:0x1f6936ccd7178272!8m2!3d28.6464178!4d-81.4146076" className="footerLink" target="_blank"><h6>Kumo Asian Kitchen<br />767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</h6></a>
                           <br />
                           <h4 style={styles.subHeading}>Phone</h4>
                           <a href="tel:(407) 207-6587" className="footerLink"><h6>(407) 270-6587</h6></a>
@@ -71,9 +71,9 @@ class Contact extends Component {
                     <Container>
                       <Row>
                         <Col sm="12" style={{textAlign: "left"}}>
-                          <h3 style={{color: "#C42C18"}}><strong>Contact Kumo Asian Kitchen</strong></h3>
+                        <h1 style={{color: '#C42C18',fontWeight: 'bold',fontFamily: 'gangOf3'}}><span className="heading">Contact Us</span></h1>
                           <h4 style={styles.subHeading}>Location</h4>
-                          <a href="https://www.google.com/maps/place/Kumo+Asian+Kitchen/@28.6464178,-81.4167963,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77191beca7b59:0x1f6936ccd7178272!8m2!3d28.6464178!4d-81.4146076" className="footerLink" target="_blank"><h6>Kumo Asian Kitchen<br />767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</h6></a>
+                          <a rel="noopener noreferrer" href="https://www.google.com/maps/place/Kumo+Asian+Kitchen/@28.6464178,-81.4167963,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77191beca7b59:0x1f6936ccd7178272!8m2!3d28.6464178!4d-81.4146076" className="footerLink" target="_blank"><h6>Kumo Asian Kitchen<br />767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</h6></a>
                           <br />
                           <h4 style={styles.subHeading}>Phone</h4>
                           <a href="tel:(407) 207-6587" className="footerLink"><h6>(407) 270-6587</h6></a>

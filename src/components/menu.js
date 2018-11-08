@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Button, Container, Jumbotron,Modal,ModalHeader,ModalBody,ModalFooter } from 'reactstrap';
+import { Button, Container,Modal,ModalHeader,ModalBody,ModalFooter } from 'reactstrap';
 import Firebase from './../fire';
 import Category from './category';
 import Fade from 'react-reveal/Fade';
@@ -87,7 +87,7 @@ class Menu extends Component<State,Props> {
       let data = {...this.state.data};
       let maxId = -1;
       for (let key in data) {
-        let id = parseInt(key);
+        let id = parseInt(key, 10);
         if (!isNaN(id)) {
           maxId = Math.max(id, maxId);
         }
@@ -205,7 +205,7 @@ class Menu extends Component<State,Props> {
                 <br />
                 <br />
                 <Container>
-                    <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
+                    <h1 style={{color: '#C42C18',fontWeight: 'bold',fontFamily: 'gangOf3'}}><span className="heading">Menu</span></h1>
                     {this.createCategories(this.state.data)}
                 </Container>
                 {saveButton}

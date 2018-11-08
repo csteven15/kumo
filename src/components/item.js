@@ -1,7 +1,6 @@
 import React, { Component} from 'react';
 import { Container, Row, Col, Button, Modal} from 'reactstrap';
-import EditableField from './EditableField'
-import ItemForm from './ItemForm'
+import ItemForm from './ItemForm';
 
 
 class Item extends Component {
@@ -14,23 +13,23 @@ class Item extends Component {
             return (
                 <span>
                     &nbsp;&nbsp;
-                    <img src={require('../images/fire.svg')} width="10" />
+                    <img src={require('../images/fire.svg')} alt="hot" width="10" />
                     &nbsp;&nbsp;
-                    <img src={require('../images/raw.svg')} width="15" />
+                    <img src={require('../images/raw.svg')} alt="raw" width="15" />
                 </span>
             );
         } else if (this.props.isHot === true) {
             return (
                 <span>
                     &nbsp;&nbsp;
-                    <img src={require('../images/fire.svg')} width="10" />
+                    <img src={require('../images/fire.svg')} alt="hot" width="10" />
                 </span>
             );
         } else if (this.props.isRaw === true) {
             return (
                 <span>
                     &nbsp;&nbsp;
-                    <img src={require('../images/raw.svg')} width="15" />
+                    <img src={require('../images/raw.svg')} alt="raw" width="15" />
                 </span>
             );
         }

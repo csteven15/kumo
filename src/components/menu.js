@@ -206,6 +206,7 @@ class Menu extends Component<State,Props> {
                 <br />
                 <Container>
                     <h1 style={{color: '#C42C18',fontWeight: 'bold',fontFamily: 'gangOf3'}}><span className="heading">Menu</span></h1>
+                    <p style={{fontFamily: 'gangOf3', fontSize: '12px'}}>Spicy: <img src={require('../images/fire.svg')} alt="hot" width="10" /> &nbsp; &nbsp; Raw: <img src={require('../images/raw.svg')} alt="raw" width="15" /></p>
                     {this.createCategories(this.state.data)}
                 </Container>
                 {saveButton}

@@ -36,7 +36,7 @@ class Navigation extends Component {
                 <NavbarBrand href="/" style={{ fontSize: '24px', marginLeft: '2%'}}><img src={require('../images/logo.svg')} alt="Kumo Logo" width="80" /></NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar style={{fontFamily: "Rochester, sans-serif", marginRight: "3%"}}>
+                    <Nav className="ml-auto" navbar style={{fontFamily: "gangOf3", marginRight: "3%"}}>
                         <NavItem>
                             <NavLink tag={Link} to="/" onClick={this.closeNavbar} activeClassName="current"><strong>Home</strong></NavLink>
                         </NavItem>

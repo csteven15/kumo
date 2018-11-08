@@ -1,0 +1,480 @@
+[debug] [2018-11-08T22:10:46.512Z] ----------------------------------------------------------------------
+[debug] [2018-11-08T22:10:46.514Z] Command:       /Users/stevenchen/.nvm/versions/node/v8.11.1/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-08T22:10:46.514Z] CLI Version:   3.17.4
+[debug] [2018-11-08T22:10:46.514Z] Platform:      darwin
+[debug] [2018-11-08T22:10:46.514Z] Node Version:  v8.11.1
+[debug] [2018-11-08T22:10:46.514Z] Time:          Thu Nov 08 2018 17:10:46 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:46.514Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-08T22:10:46.530Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-08T22:10:46.530Z] > authorizing via signed-in user
+[debug] [2018-11-08T22:10:46.532Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-08T22:10:46.532Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/S8VpnjuAruYYOpXwHhXYaUzOws73soU_8mWviq0BrvI',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Nov 08 2018 17:10:46 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:46.686Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:10:46.707Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:10:46 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:47.034Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:10:47.035Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/kumo-5aa27/tokens  
+  
+ Thu Nov 08 2018 17:10:47 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:47.393Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kumo-5aa27'...
+[info] 
+[info] i  deploying database, storage, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2018-11-08T22:10:47.790Z] >>> HTTP REQUEST PUT https://kumo-5aa27.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": true,
+    ".write": "auth != null"
+  }
+}
+ 
+ Thu Nov 08 2018 17:10:47 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:48.226Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database kumo-5aa27 is valid
+[debug] [2018-11-08T22:10:48.228Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:10:48 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:48.611Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2018-11-08T22:10:48.614Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/kumo-5aa27:test  
+ { source: { files: [ [Object] ] } } 
+ Thu Nov 08 2018 17:10:48 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:48.829Z] <<< HTTP RESPONSE 200
+[info] ✔  storage: rules file storage.rules compiled successfully
+[debug] [2018-11-08T22:10:48.831Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^2.3.0",
+    "child-process-promise": "^2.2.1",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-11-08T22:10:48.832Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/kumo-5aa27?view=CONSUMER_VIEW  
+  
+ Thu Nov 08 2018 17:10:48 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:48.833Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/kumo-5aa27?view=CONSUMER_VIEW  
+  
+ Thu Nov 08 2018 17:10:48 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:49.714Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:10:49.738Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-11-08T22:10:49.739Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:10:49 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:49.740Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/kumo-5aa27/apiKeys  
+  
+ Thu Nov 08 2018 17:10:49 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:50.041Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:10:50.073Z] <<< HTTP RESPONSE 200
+[info] i  storage: uploading rules storage.rules...
+[debug] [2018-11-08T22:10:50.076Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/kumo-5aa27/rulesets  
+ { source: { files: [ [Object] ] } } 
+ Thu Nov 08 2018 17:10:50 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:50.545Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:10:50.546Z] [rules] created ruleset projects/kumo-5aa27/rulesets/984d0933-2751-406f-acfc-51d9ce034fae
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-11-08T22:10:50.547Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/kumo-5aa27/configs  
+  
+ Thu Nov 08 2018 17:10:50 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:50.906Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (45.47 KB) for uploading
+[debug] [2018-11-08T22:10:51.601Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.kumo-5aa27.appspot.com  
+  
+ Thu Nov 08 2018 17:10:51 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:51.774Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:10:51.775Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.kumo-5aa27.appspot.com/o?uploadType=media&name=firebase-functions-source  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 46559,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/g_/jbqwbb990wgffj63khnczp580000gn/T/firebase-functions-3683ZE69sC5TWl4J.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: 0,
+  end: Infinity,
+  autoClose: true,
+  pos: 131072,
+  bytesRead: 46559 } 
+ Thu Nov 08 2018 17:10:51 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:52.321Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-11-08T22:10:53.091Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/kumo-5aa27/uploads/-LQpNAstfyWNOMV-HF0E?fileCount=22&message=  
+  
+ Thu Nov 08 2018 17:10:53 GMT-0500 (EST)
+[debug] [2018-11-08T22:10:54.725Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-08T22:10:54.725Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-08T22:10:54.727Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:45:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-11-08T22:11:56.690Z] ----------------------------------------------------------------------
+[debug] [2018-11-08T22:11:56.692Z] Command:       /Users/stevenchen/.nvm/versions/node/v8.11.1/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-08T22:11:56.693Z] CLI Version:   3.17.4
+[debug] [2018-11-08T22:11:56.693Z] Platform:      darwin
+[debug] [2018-11-08T22:11:56.693Z] Node Version:  v8.11.1
+[debug] [2018-11-08T22:11:56.695Z] Time:          Thu Nov 08 2018 17:11:56 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:56.695Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-08T22:11:56.708Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-08T22:11:56.708Z] > authorizing via signed-in user
+[debug] [2018-11-08T22:11:56.710Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:11:56 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:57.021Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:11:57.022Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/kumo-5aa27/tokens  
+  
+ Thu Nov 08 2018 17:11:57 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:57.314Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kumo-5aa27'...
+[info] 
+[info] i  deploying database, storage, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2018-11-08T22:11:57.670Z] >>> HTTP REQUEST PUT https://kumo-5aa27.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": true,
+    ".write": "auth != null"
+  }
+}
+ 
+ Thu Nov 08 2018 17:11:57 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:57.987Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database kumo-5aa27 is valid
+[debug] [2018-11-08T22:11:57.988Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:11:57 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:58.445Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2018-11-08T22:11:58.449Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/kumo-5aa27:test  
+ { source: { files: [ [Object] ] } } 
+ Thu Nov 08 2018 17:11:58 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:58.636Z] <<< HTTP RESPONSE 200
+[info] ✔  storage: rules file storage.rules compiled successfully
+[debug] [2018-11-08T22:11:58.639Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^2.3.0",
+    "child-process-promise": "^2.2.1",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-11-08T22:11:58.640Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/kumo-5aa27?view=CONSUMER_VIEW  
+  
+ Thu Nov 08 2018 17:11:58 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:58.641Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/kumo-5aa27?view=CONSUMER_VIEW  
+  
+ Thu Nov 08 2018 17:11:58 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:59.303Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-11-08T22:11:59.365Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:11:59.366Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:11:59 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:59.366Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/kumo-5aa27/apiKeys  
+  
+ Thu Nov 08 2018 17:11:59 GMT-0500 (EST)
+[debug] [2018-11-08T22:11:59.623Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:11:59.727Z] <<< HTTP RESPONSE 200
+[info] i  storage: uploading rules storage.rules...
+[debug] [2018-11-08T22:11:59.730Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/kumo-5aa27/rulesets  
+ { source: { files: [ [Object] ] } } 
+ Thu Nov 08 2018 17:11:59 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:00.116Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:12:00.116Z] [rules] created ruleset projects/kumo-5aa27/rulesets/bfc07882-3cf1-4615-b5d1-61292828e2df
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-11-08T22:12:00.117Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/kumo-5aa27/configs  
+  
+ Thu Nov 08 2018 17:12:00 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:00.448Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (45.47 KB) for uploading
+[debug] [2018-11-08T22:12:01.179Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.kumo-5aa27.appspot.com  
+  
+ Thu Nov 08 2018 17:12:01 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:01.368Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:12:01.369Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.kumo-5aa27.appspot.com/o?uploadType=media&name=firebase-functions-source  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 46559,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/g_/jbqwbb990wgffj63khnczp580000gn/T/firebase-functions-3715wF9jUjHubh0V.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: 0,
+  end: Infinity,
+  autoClose: true,
+  pos: 131072,
+  bytesRead: 46559 } 
+ Thu Nov 08 2018 17:12:01 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:01.893Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-11-08T22:12:02.643Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/kumo-5aa27/uploads/-LQpNRt8zJqt9D7awEY7?fileCount=22&message=  
+  
+ Thu Nov 08 2018 17:12:02 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:04.295Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-08T22:12:04.295Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-08T22:12:04.297Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:45:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-11-08T22:12:31.302Z] ----------------------------------------------------------------------
+[debug] [2018-11-08T22:12:31.304Z] Command:       /Users/stevenchen/.nvm/versions/node/v8.11.1/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-08T22:12:31.305Z] CLI Version:   3.17.4
+[debug] [2018-11-08T22:12:31.305Z] Platform:      darwin
+[debug] [2018-11-08T22:12:31.305Z] Node Version:  v8.11.1
+[debug] [2018-11-08T22:12:31.305Z] Time:          Thu Nov 08 2018 17:12:31 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:31.305Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-08T22:12:31.319Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-08T22:12:31.320Z] > authorizing via signed-in user
+[debug] [2018-11-08T22:12:31.321Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:12:31 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:31.654Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:12:31.654Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/kumo-5aa27/tokens  
+  
+ Thu Nov 08 2018 17:12:31 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:31.945Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kumo-5aa27'...
+[info] 
+[info] i  deploying database, storage, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2018-11-08T22:12:32.340Z] >>> HTTP REQUEST PUT https://kumo-5aa27.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": true,
+    ".write": "auth != null"
+  }
+}
+ 
+ Thu Nov 08 2018 17:12:32 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:32.648Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database kumo-5aa27 is valid
+[debug] [2018-11-08T22:12:32.649Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:12:32 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:33.125Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2018-11-08T22:12:33.127Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/kumo-5aa27:test  
+ { source: { files: [ [Object] ] } } 
+ Thu Nov 08 2018 17:12:33 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:33.317Z] <<< HTTP RESPONSE 200
+[info] ✔  storage: rules file storage.rules compiled successfully
+[debug] [2018-11-08T22:12:33.320Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^2.3.0",
+    "child-process-promise": "^2.2.1",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-11-08T22:12:33.321Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/kumo-5aa27?view=CONSUMER_VIEW  
+  
+ Thu Nov 08 2018 17:12:33 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:33.321Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/kumo-5aa27?view=CONSUMER_VIEW  
+  
+ Thu Nov 08 2018 17:12:33 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:33.962Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-11-08T22:12:34.043Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:12:34.044Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kumo-5aa27  
+  
+ Thu Nov 08 2018 17:12:34 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:34.044Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/kumo-5aa27/apiKeys  
+  
+ Thu Nov 08 2018 17:12:34 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:34.307Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:12:34.382Z] <<< HTTP RESPONSE 200
+[info] i  storage: uploading rules storage.rules...
+[debug] [2018-11-08T22:12:34.385Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/kumo-5aa27/rulesets  
+ { source: { files: [ [Object] ] } } 
+ Thu Nov 08 2018 17:12:34 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:34.691Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:12:34.691Z] [rules] created ruleset projects/kumo-5aa27/rulesets/080359ae-d879-4ab3-8286-7de23d82b476
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-11-08T22:12:34.692Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/kumo-5aa27/configs  
+  
+ Thu Nov 08 2018 17:12:34 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:35.318Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (45.47 KB) for uploading
+[debug] [2018-11-08T22:12:35.716Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.kumo-5aa27.appspot.com  
+  
+ Thu Nov 08 2018 17:12:35 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:35.864Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-08T22:12:35.865Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.kumo-5aa27.appspot.com/o?uploadType=media&name=firebase-functions-source  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 46559,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/tmp/firebase-functions-3725U6c0NBdQLAo3.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: 0,
+  end: Infinity,
+  autoClose: true,
+  pos: 131072,
+  bytesRead: 46559 } 
+ Thu Nov 08 2018 17:12:35 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:36.186Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-11-08T22:12:36.838Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/kumo-5aa27/uploads/-LQpN_LStdaTbDUAxy-I?fileCount=22&message=  
+  
+ Thu Nov 08 2018 17:12:36 GMT-0500 (EST)
+[debug] [2018-11-08T22:12:38.108Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-08T22:12:38.108Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-08T22:12:38.110Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:45:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.

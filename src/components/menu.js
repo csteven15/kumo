@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Button, Container, Jumbotron } from 'reactstrap';
+import { Button, Container, Jumbotron,Modal,ModalHeader,ModalBody,ModalFooter } from 'reactstrap';
 import Firebase from './../fire';
 import Category from './category';
 import Fade from 'react-reveal/Fade';
@@ -19,6 +19,8 @@ class Menu extends Component<State,Props> {
         this.state = {
             data: [],
             dirty: false,
+            showDiscardDialog: false,
+            showSaveDialog: false,
         }
     }
 
@@ -53,7 +55,16 @@ class Menu extends Component<State,Props> {
       console.log(data);
     }
 
+    toggleSaveDialog = () => {
+      this.setState({showSaveDialog: !this.state.showSaveDialog})
+    }
+
+    toggleDiscardDialog = () => {
+      this.setState({showDiscardDialog: !this.state.showDiscardDialog})
+    }
+
     saveChanges = () => {
+      this.toggleSaveDialog();
       let database = Firebase.database();
       let menuRef = database.ref('menu');
 
@@ -62,8 +73,18 @@ class Menu extends Component<State,Props> {
       this.setState({dirty: false});
     }
 
+    discardChanges = () => {
+      this.toggleDiscardDialog();
+      let database = Firebase.database();
+      let menuRef = database.ref('menu');
+
+      menuRef.once('value', this.updateToSnapshot);
+
+      this.setState({dirty: false});
+    }
+
     addCategory = () => {
-      var data = {...this.state.data};
+      let data = {...this.state.data};
       let maxId = -1;
       for (let key in data) {
         let id = parseInt(key);
@@ -81,7 +102,27 @@ class Menu extends Component<State,Props> {
       this.setState({dirty: true});
     }
 
+    moveCategory = (oid, nid) => {
+      let data = {...this.state.data};
+      let arr = []
+      for (let key in data) {
+        arr.push(data[key])
+      }
+      let cat = data[oid]
+      arr.splice(oid, 1);
+      arr.splice(nid, 0, cat);
+      data = {};
+      for (let key in arr) {
+        data[key+""] = arr[key]
+      }
+      this.setState({data});
+      this.onAdminChange();
+    }
+
     createCategories(data) {
+        let lastId = '';
+        for (let key in this.state.data)
+          lastId = key;
         var category = [];
         for (let key in data) {
           const updateCategoryData = (catData) => {
@@ -101,20 +142,50 @@ class Menu extends Component<State,Props> {
             this.setState({data});
             this.onAdminChange();
           };
-            category.push(
-                <div key={key}>
-                    <Category data={data[key]} id={key} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} />
-                    <br />
-                    <br />
-                </div>
-            );
+          category.push(
+              <div key={key}>
+                  <Category data={data[key]} id={key} moveCat={this.moveCategory} updateCategoryData={updateCategoryData}  isAdmin={this.props.isAdmin} col={"6"} isLast={key === lastId} isFirst={key === '0'}/>
+                  <br />
+                  <br />
+              </div>
+          );
         }
 
         return category;
     }
 
     render() {
-      const saveButton = this.props.isAdmin ? <Button style={{margin: '5px'}} color="success" onClick={this.saveChanges}>Save changes</Button> : null;
+      const saveButton = this.props.isAdmin ? (
+        <span>
+          <Button style={{margin: '5px'}} color="success" onClick={this.toggleSaveDialog}>Save changes</Button>
+          <Button style={{margin: '5px'}} color="warning" onClick={this.toggleDiscardDialog}>Discard changes</Button>
+        </span>
+      ) : null;
+      let dialogs = (
+        <span>
+          <Modal isOpen={this.state.showSaveDialog} toggle={this.toggleSaveDialog}>
+            <ModalHeader>Save Changes</ModalHeader>
+              <ModalBody>
+                Are you sure you want to commit your changes to the menu?
+              </ModalBody>
+            <ModalFooter>
+              <Button color="success" size="sm" onClick={this.saveChanges}>Save</Button>{' '}
+              <Button color="secondary" size="sm" onClick={this.toggleSaveDialog}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+          <Modal isOpen={this.state.showDiscardDialog} toggle={this.toggleDiscardDialog}>
+            <ModalHeader>Discard Changes</ModalHeader>
+              <ModalBody>
+                Are you sure you want to discard your changes to the menu?
+              </ModalBody>
+            <ModalFooter>
+              <Button color="warning" size="sm" onClick={this.discardChanges}>Discard</Button>{' '}
+              <Button color="secondary" size="sm" onClick={this.toggleDiscardDialog}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+
+        </span>
+      )
         console.log(this.state.data);
         if (this.state.data.length === 0) {
             return (
@@ -127,7 +198,7 @@ class Menu extends Component<State,Props> {
             );
         } else {
           let newCategoryButton = this.props.isAdmin ? (
-              <Button onClick={this.addCategory} color="secondary">Add category</Button>
+              <Button onClick={this.addCategory} color="secondary" style={{margin: '5px'}}>Add category</Button>
           ) : null;
             return (
                 <div>
@@ -137,8 +208,9 @@ class Menu extends Component<State,Props> {
                     <h1 style={{color: "#C42C18"}}><strong>Menu</strong></h1>
                     {this.createCategories(this.state.data)}
                 </Container>
-                {newCategoryButton}
                 {saveButton}
+                {dialogs}
+                {newCategoryButton}
             </div>
             )
         }

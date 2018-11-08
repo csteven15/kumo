@@ -124,13 +124,29 @@ class Category extends Component {
       this.setState({isEditing: !this.state.isEditing});
     }
 
+    moveUp = () => {
+      let curId = parseInt(this.props.id)
+      this.props.moveCat(curId, curId-1)
+    }
+    moveDown = () => {
+        let curId = parseInt(this.props.id)
+        this.props.moveCat(curId, curId+1)
+    }
+
     render() {
+      console.log(this.props.id)
       let newItemButton = this.props.isAdmin ? (
-        <div><br/><Button color="secondary" size="sm" onClick={this.addItem}>Add item to {this.props.data.name}</Button><br/><br/></div>
+        <div><br/>
+          <Button color="secondary" size="sm" onClick={this.addItem} style={{margin: '5px'}}>Add item to {this.props.data.name}</Button>
+          <Button color="secondary" size="sm" disabled={this.props.isFirst} onClick={this.moveUp} style={{margin: '5px'}}>Move up</Button>
+          <Button color="secondary" size="sm" disabled={this.props.isLast} onClick={this.moveDown} style={{margin: '5px'}}>Move down</Button>
+          <br/><br/>
+        </div>
       ) : null;
       const editButton = this.props.isAdmin ? (
           <Button style={{fontSize: '20px', marginRight:'10px', marginTop: '0', marginBottom: '0'}} outline color="primary" size="sm" onClick={this.toggleEditDialog}>Edit</Button>
         ) : null;
+
       return (
         <div>
           <Container>

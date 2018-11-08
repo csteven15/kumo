@@ -33,7 +33,7 @@ class Navigation extends Component {
     render() {
         return (
             <Navbar color="light" light expand="md" fixed="top" style={{paddingLeft: "2em", paddingRight: "2em", fontSize: "18px"}}>
-                <NavbarBrand href="/" style={{ fontSize: '24px', marginLeft: '2%'}}><img src={require('../images/logo.png')} alt="Kumo Logo" width="80" /></NavbarBrand>
+                <NavbarBrand href="/" style={{ fontSize: '24px', marginLeft: '2%'}}><img src={require('../images/logo.svg')} alt="Kumo Logo" width="80" /></NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar style={{fontFamily: "Rochester, sans-serif", marginRight: "3%"}}>

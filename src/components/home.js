@@ -70,7 +70,7 @@ class Home extends Component {
                 <div>
                   <br />
                   <Fade big>
-                    <h3 style={{fontFamily: "cursive",fontSize: "16pt",margin: "50px"}}>Loading Home Page...</h3>
+                    <h3 style={{fontFamily: "gangOf3",fontSize: "16pt",margin: "50px"}}>Loading Home Page...</h3>
                   </Fade>
                 </div>
             );

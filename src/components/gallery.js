@@ -147,7 +147,7 @@ class Gallery extends Component {
     renderTitle() {
       if (this.props.title === true) {
         return (
-          <h1 style={{color: '#C42C18',fontWeight: 'bold',fontFamily: 'gangOf3'}}><span className="heading">Gallary</span></h1>
+          <h1 style={{color: '#C42C18',fontWeight: 'bold',fontFamily: 'gangOf3'}}><span className="heading">Gallery</span></h1>
         );
       }
     }

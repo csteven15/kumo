@@ -86,7 +86,12 @@ class Gallery extends Component {
       } else {
         // Fetch all image names from the database!
         database.child("gallery").once('value').then((snapshot) => {
-          this.imageNames = snapshot.val();
+          let listObject = snapshot.val();
+          this.imageNames = [];
+          for (let key in listObject) {
+            let value = listObject[key];
+            this.imageNames.push(value);
+          }
           debugLog("Successfully fetched imageNames from database: " + this.imageNames);
 
           // For each of the image names, we want to get the image's download URL
@@ -102,9 +107,9 @@ class Gallery extends Component {
               return;
             }
 
-            storage.child("menu").child(element + ".jpg").getDownloadURL().then((primaryURL) => {
+            storage.child("gallery").child(element + ".jpg").getDownloadURL().then((primaryURL) => {
               debugLog("Got primaryURL for " + element);
-              storage.child("menu").child(element + "_thumbnail.jpg").getDownloadURL().then((thumbnailURL) => {
+              storage.child("thumbnail").child(element + ".jpg").getDownloadURL().then((thumbnailURL) => {
                 debugLog("Got thumbnailURL for " + element);
                 let thumbnailPrefetch = new Image();
                 thumbnailPrefetch.src = thumbnailURL;

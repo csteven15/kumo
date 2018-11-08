@@ -13,14 +13,11 @@ import Gallery from './gallery';
 import MapBox from './mapbox';
 import MediaQuery from 'react-responsive';
 
-const storage = Firebase.storage().ref();
-
 class Home extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            // images: [],
             appetizer: [],
             sushiBurrito: []
         }
@@ -41,21 +38,7 @@ class Home extends Component {
             var sushiBurrito = snapshot.toJSON();
             this.setState({sushiBurrito});
         });
-        // this.getImage('sushi');
-        // this.getImage('popcornChicken');
-        // this.getImage('drinks');
     }
-
-    // getImage(image) {
-    //     storage.child(`/menu/${image}.jpg`).getDownloadURL().then((url) => {
-    //       console.log(this.state);
-    //         this.setState({images: [...this.state.images, url]});
-    //         console.log(this.state);
-    //         }).catch((error) => {
-    //         // Handle any errors
-    //     });
-    // }
-
 
     miniMenu(data) {
         return <Category data={data} col={"12"} />;
@@ -66,23 +49,20 @@ class Home extends Component {
             {
                 title: 'Kumo Asian Kitchen',
                 description: '767 South SR 434',
-                button: 'Read More',
                 image: require('../images/sushiCarousel.jpg'),
                 subDescription: 'Altamonte Springs, FL 32714'
             },
             {
                 title: '14 Different Types of Sushi!',
-                description: '',
-                button: 'Buy now',
+                description: 'Check out our menu for details!',
                 image: require('../images/chopsticksCarousel.jpg'),
-                subDescription: 'Check out our menu for details!'
+                subDescription: ''
             },
 			{
                 title: 'Place an order today!',
-                description: '',
-                button: 'Discover',
+                description: '(407) 270-6587',
                 image: require('../images/salmonCarousel.jpg'),
-                subDescription: '(407) 270-6587'
+                subDescription: ''
             },
         ];
         if (this.state.sushiBurrito.length === 0 || this.state.appetizer.length === 0) {
@@ -109,11 +89,10 @@ class Home extends Component {
                           <br />
                           <br />
                           <div className="inner" style={{color: "#FFFFFF"}}>
-                            <h1 style = {{ textShadow: "2px 2px #000000"}}><strong>{item.title}</strong></h1>
-                            <p><strong>{item.description}</strong></p>
-                            {/* <button>{item.button}</button> */}
+                            <h1 style = {{ textShadow: "2px 2px #000000", fontFamily: "gangOf3", fontSize: "60px", margin: "5px"}}><strong>{item.title}</strong></h1>
+                            <p style={{textShadow: "2px 2px #000000"}}><strong>{item.description}</strong></p>
                           </div>
-                          <div className="inner" style={{color: "#FFFFFF"}}>
+                          <div className="inner" style={{color: "#FFFFFF", textShadow: "2px 2px #000000"}}>
                             <p><strong>{item.subDescription}</strong></p>
                           </div>
                         </div>
@@ -227,7 +206,7 @@ class Home extends Component {
                         <Container>
                           <Row>
                             <Col>
-                              <h4>Opening Hours</h4>
+                              <h2 style={styles.headingText}><span className="heading">Opening Hours</span></h2>
                             </Col>
                           </Row>
                           <Row>
@@ -284,11 +263,10 @@ class Home extends Component {
                       </Button>
                     </Link>
                   </Fade>
+                  <br />
                   <Container>
                     <br />
                     <h2 style={styles.headingText}><span className="heading">Location</span></h2>
-                    <h4><strong>767 S State Rd 434 Suite 1040, Altamonte Springs, FL 32714</strong></h4>
-                    <br />
                   </Container>
                   <br />
                   <MediaQuery query="(max-height: 768px)">
@@ -314,7 +292,8 @@ const styles = {
     },
     headingText: {
         color: '#C42C18',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'gangOf3'
     }
 };
 

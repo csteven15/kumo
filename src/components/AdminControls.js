@@ -1,7 +1,7 @@
 import fire from '../fire';
 import React from 'react';
 import { Button } from 'reactstrap';
-import { Container, Row, Col } from 'reactstrap';
+import { Col } from 'reactstrap';
 import Menu from './menu';
 type Props = {
     user: Object,

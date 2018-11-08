@@ -1,7 +1,6 @@
 import React, { Component} from 'react';
 import { Container, Row, Col,Button,Modal } from 'reactstrap';
 import Item from './item';
-import EditableField from './EditableField';
 import CategoryForm from './CategoryForm';
 
 
@@ -38,17 +37,13 @@ class Category extends Component {
                 </Col>
             );
         }
-        // let result = Object.keys(listOfItems).map((key) => {
-        //     return [Number(key), listOfItems[key]]
-        // })
-        // console.log(result)
         return itemsList;
     }
     addItem = () => {
       var data = {...this.props.data};
       let maxId = -1;
       for (let key in data.items) {
-        let id = parseInt(key);
+        let id = parseInt(key, 10);
         console.log("Found " + key + " " + id);
         if (!isNaN(id)) {
           maxId = Math.max(id, maxId);
@@ -90,7 +85,6 @@ class Category extends Component {
                     priceList.push(optionPriceSetting.options[i].price);
                 }
             }
-            // console.log(priceList);
             let finalPrice = priceList.join(' ~ ');
             return (
                 <Row>
@@ -125,12 +119,12 @@ class Category extends Component {
     }
 
     moveUp = () => {
-      let curId = parseInt(this.props.id)
-      this.props.moveCat(curId, curId-1)
+      let curId = parseInt(this.props.id, 10);
+      this.props.moveCat(curId, curId-1);
     }
     moveDown = () => {
-        let curId = parseInt(this.props.id)
-        this.props.moveCat(curId, curId+1)
+        let curId = parseInt(this.props.id, 10);
+        this.props.moveCat(curId, curId+1);
     }
 
     render() {

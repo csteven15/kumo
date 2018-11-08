@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col,ModalHeader,ModalBody,ModalFooter,Button,Input,Label,FormGroup } from 'reactstrap';
+import { ModalHeader,ModalBody,ModalFooter,Button,Input,Label,FormGroup } from 'reactstrap';
 
 type Props = {
   id: string,
@@ -70,7 +70,7 @@ class ItemForm extends React.Component<State,Props> {
 
   updPriceCount = (e) => {
     const data = {...this.state.data};
-    const count = parseInt(e.target.value) || 0;
+    const count = parseInt(e.target.value, 10) || 0;
 
     if (count > 0) {
       let options = {};

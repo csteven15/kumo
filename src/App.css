@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: SawarabiMincho;
 }
 
 .App-logo {
@@ -30,4 +31,15 @@
 @font-face {
   font-family: gangOf3;
   src: url(go3v2.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: SawarabiMincho;
+}
+
+@font-face {
+  font-family: SawarabiMincho;
+  src: url(SawarabiMincho-Regular.ttf);
 }

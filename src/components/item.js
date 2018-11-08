@@ -91,7 +91,7 @@ class Item extends Component {
                       <h6><strong>{this.priceSetting()}</strong></h6>
                   </Col>
               </Row>
-              <Row>
+              <Row style={{marginBottom: "10px"}}>
                   <Col style={{fontSize: "11px", textAlign: "left"}}>
                       {this.description()}
                   </Col>

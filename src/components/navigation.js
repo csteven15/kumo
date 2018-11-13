@@ -41,6 +41,9 @@ class Navigation extends Component {
                             <NavLink tag={Link} to="/" onClick={this.closeNavbar} activeClassName="current"><strong>Home</strong></NavLink>
                         </NavItem>
                         <NavItem>
+                            <a className="nav-link" href="https://order.menusifu.com/kumo-asian-kitchen-restaurant#/store" target="_blank" ><strong>Online Order</strong></a>
+                        </NavItem>
+                        <NavItem>
                             <NavLink tag={Link} to="/menu" onClick={this.closeNavbar} activeClassName="current"><strong>Menu</strong></NavLink>
                         </NavItem>
                         <NavItem>
@@ -54,7 +57,6 @@ class Navigation extends Component {
             </Navbar>
         );
     }
-
 }
 
 export default Navigation;

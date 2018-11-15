@@ -76,7 +76,7 @@ class Contact extends Component {
                           <a rel="noopener noreferrer" href="https://www.google.com/maps/place/Kumo+Asian+Kitchen/@28.6464178,-81.4167963,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77191beca7b59:0x1f6936ccd7178272!8m2!3d28.6464178!4d-81.4146076" className="footerLink" target="_blank"><h6>Kumo Asian Kitchen<br />767 South SR 434 Suite 1040<br />Altamonte Springs, Fl 32714</h6></a>
                           <br />
                           <h4 style={styles.subHeading}>Phone</h4>
-                          <a href="tel:(407) 207-6587" className="footerLink"><h6>(407) 270-6587</h6></a>
+                          <a href="tel:(407) 270-6587" className="footerLink"><h6>(407) 270-6587</h6></a>
                           <br />
                           <h4 style={styles.subHeading}>Opening Hours</h4>
                           <Row>

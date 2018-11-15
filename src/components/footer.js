@@ -21,7 +21,7 @@ const Footer = () => {
                   <Col sm="3" style={{textAlign: "left"}}>
                     <br />
                     <h5 style={styles.footerStyle}>Contact</h5>
-                    <a href="tel:(407) 207-6587" className="footerLink">(407) 270-6587</a>
+                    <a href="tel:(407) 270-6587" className="footerLink">(407) 270-6587</a>
                   </Col>
                   <Col sm="3" style={{textAlign: "left"}}>
                     <br />

@@ -86,7 +86,6 @@ class Item extends Component {
       ) : null;
 
       return (
-        <Container>
           <table style={{width: "100%", marginBottom: "10px"}}>
             <tr style={{}}>
               <td style={{verticalAlign: "top"}}>
@@ -111,7 +110,6 @@ class Item extends Component {
               <ItemForm id={this.props.id} data={this.props.data} toggle={this.toggleEditDialog} updateItem={this.props.updateItemData} />
             </Modal>
           </table>
-        </Container>
 
 
           // <Container style={{padding: "2px", backgroundColor: "#FF0000"}}>

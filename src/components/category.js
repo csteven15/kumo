@@ -151,19 +151,26 @@ class Category extends Component {
       return (
         <div>
           <Container>
-              <Row>
-                  <Col style={{textAlign: "left"}}>
-                    <h2 style={{color: "#C42C18"}}><div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>{editButton}<strong>{this.props.data.name}</strong></div></h2>
-                  </Col>
-              </Row>
-              {this.optionPriceSetting()}
-              {this.description()}
+            <Row>
+              <Col style={{textAlign: "left"}}>
+                <h2 style={{color: "#C42C18"}}><div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>{editButton}<strong>{this.props.data.name}</strong></div></h2>
+              </Col>
+            </Row>
+            {this.optionPriceSetting()}
+            {this.description()}
           </Container>
           <hr />
           <Container>
-              <Row>
+            <Row>
+              <MediaQuery query="(min-width: 800px)">
+                {this.listItems()}
+              </MediaQuery>
+              <MediaQuery query="(max-width: 800px)">
+                <Col>
                   {this.listItems()}
-              </Row>
+                </Col>
+              </MediaQuery>
+            </Row>
           </Container>
           {this.footnote()}
           {newItemButton}

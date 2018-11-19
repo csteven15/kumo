@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { Container, Row, Col,Button,Modal } from 'reactstrap';
 import Item from './item';
 import CategoryForm from './CategoryForm';
-
+import MediaQuery from 'react-responsive';
 
 class Category extends Component {
   state = {
@@ -32,9 +32,16 @@ class Category extends Component {
             const data = listOfItems[i];
             const { name, description, price, isHot, isRaw, optionPriceSetting } = data;
             itemsList.push(
-                <Col sm={col}>
+              <React.Fragment>
+                <MediaQuery query="(min-width: 800px)">
+                  <Col sm={col}>
                     <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} updateItemData={updateItemData} isAdmin={this.props.isAdmin} data={data} id={i}/>
-                </Col>
+                  </Col>
+                </MediaQuery>
+                <MediaQuery query="(max-width: 800px)">
+                  <Item name={name} description={description} price={price} isHot={isHot} isRaw={isRaw} optionPriceSetting={optionPriceSetting} updateItemData={updateItemData} isAdmin={this.props.isAdmin} data={data} id={i}/>
+                </MediaQuery>
+              </React.Fragment>
             );
         }
         return itemsList;

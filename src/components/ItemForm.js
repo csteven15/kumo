@@ -111,7 +111,7 @@ class ItemForm extends React.Component<State,Props> {
 
     let priceFields = null;
     if (optionCount === 1) {
-      priceFields = <FormGroup><Label for="price">Price</Label><Input value={prices.options[0].price} onChange={this.updPrice} id="name" /></FormGroup>;
+      priceFields = <FormGroup><Label for="price">Price</Label><Input maxlength="6" value={prices.options[0].price} onChange={this.updPrice} id="name" /></FormGroup>;
     } else if(optionCount > 1) {
       let list = [];
       for(let x=0;x<optionCount;x++) {
@@ -127,8 +127,8 @@ class ItemForm extends React.Component<State,Props> {
         };
         list.push(
           <div style={{border: '1px solid black', marginBottom: '5px', padding: '5px'}} key={x}>
-            <FormGroup><Label>Label</Label><Input value={prices.options[x].text} onChange={updTextX}/></FormGroup>
-            <FormGroup><Label>Price</Label><Input value={prices.options[x].price} onChange={updPriceX} /></FormGroup>
+            <FormGroup><Label>Label</Label><Input maxlength="7" value={prices.options[x].text} onChange={updTextX}/></FormGroup>
+            <FormGroup><Label>Price</Label><Input maxlength="6" value={prices.options[x].price} onChange={updPriceX} /></FormGroup>
           </div>
         );
       }
@@ -143,19 +143,19 @@ class ItemForm extends React.Component<State,Props> {
     return (
       <div>
         <ModalHeader>Edit Item #{this.props.id}: {this.props.data.name}</ModalHeader>
-          <ModalBody>
-            <FormGroup><Label for="name">Name</Label><Input value={this.state.data.name} onChange={this.updName} id="name" /></FormGroup>
-            <FormGroup><Label for="description">Description</Label><Input value={this.state.data.description||''} onChange={this.updDescription} id="description" /></FormGroup>
-            <FormGroup check><Label check><Input type="checkbox" checked={this.state.data.isHot} onChange={this.updHot} id="isHot" />Is hot?</Label></FormGroup>
-            <FormGroup check><Label check><Input type="checkbox" checked={this.state.data.isRaw} onChange={this.updRaw} id="isRaw" />Is Raw?</Label></FormGroup>
-            <FormGroup>
-              <Label for="priceOptionCount">Number of price options</Label>
-              <Input type="select" id="priceOptionCount" value={optionCount} onChange={this.updPriceCount}>
-                {priceOptionCountOptions}
-              </Input>
-            </FormGroup>
-            {priceFields}
-          </ModalBody>
+        <ModalBody>
+          <FormGroup><Label for="name">Name</Label><Input maxlength="32" value={this.state.data.name} onChange={this.updName} id="name" /></FormGroup>
+          <FormGroup><Label for="description">Description</Label><Input maxlength="150" value={this.state.data.description||''} onChange={this.updDescription} id="description" /></FormGroup>
+          <FormGroup check><Label check><Input type="checkbox" checked={this.state.data.isHot} onChange={this.updHot} id="isHot" />Hot</Label></FormGroup>
+          <FormGroup check><Label check><Input type="checkbox" checked={this.state.data.isRaw} onChange={this.updRaw} id="isRaw" />Raw</Label></FormGroup>
+          <FormGroup>
+            <Label for="priceOptionCount">Number of price options</Label>
+            <Input type="select" id="priceOptionCount" value={optionCount} onChange={this.updPriceCount}>
+              {priceOptionCountOptions}
+            </Input>
+          </FormGroup>
+          {priceFields}
+        </ModalBody>
         <ModalFooter>
           <Button color="primary" size="sm" onClick={this.handleSubmit}>Update</Button>{' '}
           <Button color="danger" size="sm" onClick={this.handleRemove}>Remove</Button>{' '}

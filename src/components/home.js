@@ -33,7 +33,7 @@ class Home extends Component {
             console.log(appetizer);
             this.setState({appetizer});
         });
-        let sushiBurritoRef = database.ref('menu/11');
+        let sushiBurritoRef = database.ref('menu/1');
         sushiBurritoRef.on('value', (snapshot) => {
             var sushiBurrito = snapshot.toJSON();
             this.setState({sushiBurrito});
@@ -218,7 +218,7 @@ class Home extends Component {
                             </Col>
                             <Col xs="6">
                               <h5>Sunday</h5>
-                              <h6>12:00 AM</h6>
+                              <h6>3:00 PM</h6>
                               <hr />
                               <h6>9:30 PM</h6>
                             </Col>

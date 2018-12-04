@@ -54,7 +54,7 @@ class Contact extends Component {
                             </Col>
                             <Col xs="6">
                               <h6 style={styles.dates}>Sunday</h6>
-                              <h6>12:00 AM to 9:30 PM</h6>
+                              <h6>3:00 PM to 9:30 PM</h6>
                             </Col>
                           </Row>
                         </Col>

@@ -218,9 +218,7 @@ class Home extends Component {
                             </Col>
                             <Col xs="6">
                               <h5>Sunday</h5>
-                              <h6>3:00 PM</h6>
-                              <hr />
-                              <h6>9:30 PM</h6>
+                              <h6>Closed</h6>
                             </Col>
                           </Row>
                         </Container>
